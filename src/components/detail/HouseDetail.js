@@ -1,6 +1,7 @@
 import React from "react";
 import HouseDetailName from "./HouseDetailName";
 import HouseDetailSub from "./HouseDetailSub";
+import './detail.css';
 
 function houseDetail() {
   return (

@@ -5,8 +5,6 @@ import HouseDetail from './components/detail/HouseDetail';
 function App() {
   return (
     <div className="App">
-    <div> Navbar </div>
-    <hr></hr>
     <Router>
       <Routes>
         <Route path='' element={<HouseDetail/>} />
