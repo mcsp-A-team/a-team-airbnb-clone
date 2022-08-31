@@ -6,17 +6,17 @@ import Footer from "./components/Footer";
 import Navbar from "../src/components/navbar/NavBar";
 
 function App() {
-  return ( 
+  return (
     <div className="App">
-    <Router>
-      <Routes>
-        <Route path='' element={<HouseDetail/>} />
-      </Routes>
-    </Router>
-      
-     <Navbar />
+      <Router>
+      <Navbar />
+        <Routes>
+          <Route path="/housedetail" element={<HouseDetail />} />
+          {/* <Route path="/" element={<Homepage />} /> */}
+          
+        </Routes>
+      </Router>
       <Footer />
-
     </div>
   );
 }

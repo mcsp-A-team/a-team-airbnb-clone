@@ -1,20 +1,26 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import iconsList from "./ExplorerIcons";
 import FilterButton from "./FilterButton";
 
 export default function NavExplorer() {
+  const navigate = useNavigate();
+  const handleClick = (title) => {
+    navigate(`/${title}`);
+  };
   return (
     <div className="explorer-bar bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
       <div className="explorer-holder ">
         <div className="holder-icons flex flex-row gap-8">
           {iconsList.map((icon) => (
-              <button
-                  key={icon.title}
+            <button
+              key={icon.title}
               aria-hidden="false"
               className="explorer-icon-btn"
               role="radio"
               aria-checked="false"
               type="button"
+              onClick={()=>handleClick(icon.title)}
             >
               <div className="explorer-icon">
                 <span className="grid gap-1">
