@@ -1,0 +1,30 @@
+/* HOUSE DETAIL CSS */
+.house-detail {
+    min-height: 100vh;
+    overflow: auto;
+    padding: 0 4rem;
+  }
+  
+  .house-detail-name {
+    display: flex;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    justify-content: left;
+  }
+  
+  .house-detail-sub {
+    display: flex;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+  }
+  
+  .house-detail-rating {
+    display: flex;
+    gap: 0.25rem;
+  }
+  
+  .house-detail-review-button button {
+    text-decoration: underline;
+    border: none;
+    background-color: white;
+  }
