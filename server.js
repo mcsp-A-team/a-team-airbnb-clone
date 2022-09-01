@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 
-const pool = new pg.Pool({ database: "airbnb_homes" });
+const pool = new pg.Pool({ database: "airbnb_clone" });
 
 const app = express();
 app.use(cors());
@@ -19,13 +19,13 @@ app.get("/homes", (req, res) => {
   });
 });
 
-// GET HOMES by ID
-app.get("/homes/:id", (req, res, next) => {
-  const id = req.params.id;
+// GET HOMES by Country
+app.get("/homes/:country", (req, res, next) => {
+  const country = req.params.country;
   pool
-    .query("SELECT * FROM homes WHERE id = $1;", [id])
+    .query("SELECT * FROM homes WHERE country = $1", [country])
     .then((data) => {
-      const home = data.rows[0];
+      const home = data.rows;
       if ([0]) {
         res.send([home]);
       }
