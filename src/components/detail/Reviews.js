@@ -5,6 +5,7 @@ import { faker } from "@faker-js/faker";
 
 export const Review = () => {
   const randomRate = (Math.random() * 5).toFixed(2);
+  const randomReviewCount = (Math.random() * 100 + 6).toFixed(0);
 
   const [fakeReviews, SetFakeREviews] = useState([
     "Cleanliness",
@@ -15,7 +16,13 @@ export const Review = () => {
     "Value",
   ]);
   return (
-    <div>
+    <div
+      style={{
+        borderTop: " .5px solid #cdcaca",
+        borderBottom: " .5px solid #cdcaca",
+        padding: 80,
+      }}
+    >
       <div
         style={{
           display: "flex",
@@ -32,11 +39,12 @@ export const Review = () => {
             fontSize: 22,
             alignContent: "center",
             alignItems: "center",
+            paddingTop: 35,
           }}
         >
           {randomRate}
           <AiIcons.AiFillStar />
-          <BsIcons.BsDot /> 6 Reviews
+          <BsIcons.BsDot /> {randomReviewCount} Reviews
         </h1>
       </div>
       <div style={{ grid: "inherit" }}>
@@ -52,7 +60,7 @@ export const Review = () => {
                   flexWrap: "wrap",
                   alignContent: "stretch",
                   justifyContent: "space-between",
-                  marginRight: 60,
+                  marginRight: 100,
                   marginTop: 10,
                 }}
               >
@@ -81,6 +89,7 @@ export const Review = () => {
                   alignItems: "flex-start",
                   width: 350,
                   textAlign: "left",
+                  paddingBottom: 30,
                 }}
               >
                 <div
@@ -101,10 +110,27 @@ export const Review = () => {
                     <span>{faker.date.month({ context: true })} 2022</span>
                   </div>
                 </div>
-                <p>{faker.lorem.paragraph()}</p>
+                <p>{faker.lorem.sentences(2, "\n")}</p>
               </div>
             );
           })}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            paddingTop: 10,
+          }}
+        >
+          <button
+            style={{
+              border: "1px solid black",
+              borderRadius: 10,
+              width: 200,
+              height: 50,
+            }}
+          >
+            <strong>Show all {randomReviewCount} reviews</strong>
+          </button>
         </div>
       </div>
     </div>

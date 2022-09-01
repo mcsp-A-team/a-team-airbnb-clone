@@ -3,7 +3,7 @@ import HouseDetailName from "./HouseDetailName";
 import HouseDetailSub from "./HouseDetailSub";
 import "./detail.css";
 import { Review } from "./Reviews";
-import { Calendar } from "./Calendar";
+import { CalendarDisplay } from "./Calendar";
 
 function houseDetail() {
   return (
@@ -12,7 +12,8 @@ function houseDetail() {
       <hr></hr>
       <HouseDetailName />
       <HouseDetailSub />
-      <Calendar />
+      <CalendarDisplay />
+
       <Review />
     </div>
   );
