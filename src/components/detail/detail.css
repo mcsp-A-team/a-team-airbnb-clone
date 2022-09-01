@@ -188,6 +188,7 @@
   text-decoration: underline;
   border: none;
   font-weight: 500;
+  margin-bottom: 1rem;
 }
 .house-detail-des-map {
   height: 400px;

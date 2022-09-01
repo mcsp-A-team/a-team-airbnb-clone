@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { NavContext } from "./components/navbar/NavContext";
 
@@ -22,6 +22,7 @@ function App() {
           <Route path="/housedetail" element={<HouseDetail />} />
           {/* <Route path="/" element={<Homepage />} /> */}
           <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
         </Routes>
       </Router>
       <Footer />

@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 import { faker } from "@faker-js/faker";
+import HouseDetailReview from "./HouseDetailReview";
+import Rate from "./Rate";
 
 export const Review = () => {
-  const randomRate = (Math.random() * 5).toFixed(2);
-  const randomReviewCount = (Math.random() * 100 + 6).toFixed(0);
+  // const randomRate = (Math.random() * 5).toFixed(2);
+  // const randomReviewCount = (Math.random() * 100 + 6).toFixed(0);
+  // -------- NOTE FROM LE: HEY KEVIN I created 2 components Rate and HouseDetailReview to make is more dynamic for HouseDetail page. If you have question,just shoot me sms. --------------
 
   const [fakeReviews, SetFakeREviews] = useState([
     "Cleanliness",
@@ -43,8 +46,8 @@ export const Review = () => {
           }}
         >
           <AiIcons.AiFillStar />
-          {randomRate}
-          <BsIcons.BsDot /> {randomReviewCount} Reviews
+          {Rate}
+          <BsIcons.BsDot /> {HouseDetailReview} Reviews
         </h1>
       </div>
       <div style={{ grid: "inherit" }}>
@@ -129,7 +132,7 @@ export const Review = () => {
               height: 50,
             }}
           >
-            <strong>Show all {randomReviewCount} reviews</strong>
+            <strong>Show all {HouseDetailReview} reviews</strong>
           </button>
         </div>
       </div>

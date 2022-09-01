@@ -41,7 +41,7 @@ export const CalendarDisplay = () => {
           flexWrap: "nowrap",
           alignContent: "center",
           justifContent: "space-eve",
-          width: 700,
+          width: 615,
           paddingTop: 20,
           padding: 80,
         }}

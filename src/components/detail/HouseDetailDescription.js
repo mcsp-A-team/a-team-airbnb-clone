@@ -1,3 +1,4 @@
+import { CalendarDisplay } from "./Calendar";
 const HouseDetailDescription = ({ house }) => {
   return (
     <div className="house-detail-des">
@@ -9,7 +10,7 @@ const HouseDetailDescription = ({ house }) => {
           </p>
         </div>
         <div className="house-detail-des-right">
-          <img
+          <img className="avatar"
             src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraightStrand&accessoriesType=Wayfarers&hairColor=Brown&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light"
             alt={house}
           />
@@ -66,7 +67,7 @@ const HouseDetailDescription = ({ house }) => {
           </p>
           <button>Show more</button>
         </div>
-        <div className="house-detail-des-divider"></div>
+        {/* <div className="house-detail-des-divider"></div> */}
         {/* <div className="house-detail-des-map">
             <h3>Where you’ll be</h3>
             <p>Killeen, Texas, United States</p>
