@@ -6,7 +6,7 @@ export default function HomePreview({ city, state, picture }) {
 
   return (
     <div className='m-2 flex flex-col items-start w-64'>
-        <img className='w-48 h-48 rounded-lg' src="https://random.imagecdn.app/500/150" />
+        <a href='/houseDetail' ><img className='w-48 h-48 rounded-lg' src="https://random.imagecdn.app/500/150" /></a>
         <p className='font-semibold'>{city}, {state}</p>
         <p>{miles} miles</p>
         <p>Oct 3-8</p>
