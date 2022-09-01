@@ -1,8 +1,19 @@
 import React from "react";
+import { useContext, useState } from "react";
+import { NavContext } from "../navbar/NavContext";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import NavExplorer from "./NavExplorer";
 
 export default function SearchBar() {
+        
+  const {searchInput, onChangeInput } = useContext(NavContext);
+  // console.log(searchInput);
+  const navigate = useNavigate();
+  const navigateClick = () => {
+    navigate(`/${searchInput}`);
+  };
+
+
   return (
     <div>
       <nav className="search-bar bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
@@ -29,6 +40,7 @@ export default function SearchBar() {
               <button
                 className="search-btn hover:shadow-lg flex items-center pl-2 border rounded-full px-1  py-1"
                 type="button"
+                onClick={navigateClick}
               >
                 <div className="search-desc block flex-grow flex-shrink ">
                   Anywhere
@@ -38,8 +50,13 @@ export default function SearchBar() {
                   Any week
                 </div>
                 <div className="add-guests">|</div>
-                <div className="search-desc add-guests block flex-grow flex-shrink ">
-                  Add guests
+                <div className="search-desc add-guests block flex-grow flex-shrink text-center ">
+                  <input
+                    className="text-center"
+                    type="text"
+                    placeholder="Country"
+                    onChange={onChangeInput}
+                  />
                 </div>
 
                 <div className="search-icon flex items-center justify-center relative  h-8 w-8 rounded-full">
@@ -158,7 +175,6 @@ export default function SearchBar() {
           </div>
         </div>
       </nav>
-     
     </div>
   );
 }

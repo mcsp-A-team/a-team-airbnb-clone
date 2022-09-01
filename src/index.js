@@ -3,11 +3,15 @@ import './index.css'
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import NavContextProvider from "./components/navbar/NavContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/**NavContextProvider pass props to children components*/}
+    <NavContextProvider>
+      <App />
+    </NavContextProvider>
   </React.StrictMode>
 );
 
