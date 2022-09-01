@@ -5,13 +5,12 @@ import HouseDetailImages from "./HouseDetailImages";
 import SearchBar from "../navbar/SearchBar";
 import HouseDetailDescription from "./HouseDetailDescription";
 import HouseDetailMap from "./HouseDetailMap";
-import './detail.css';
+import "./detail.css";
 // import { useParams } from "react-router-dom";
 // import axios from "axios";
 
 import { Review } from "./Reviews";
 import { CalendarDisplay } from "./Calendar";
-// >>>>>>> origin/main
 
 function houseDetail() {
   // let { id } = useParams();
@@ -24,7 +23,6 @@ function houseDetail() {
 
   return (
     <div className="house-detail">
-{/* <<<<<<< HEAD */}
       <SearchBar />
       <HouseDetailName />
       <HouseDetailSub />
@@ -35,9 +33,7 @@ function houseDetail() {
       </div>
       <CalendarDisplay />
       <Review />
-        <HouseDetailMap />
-{/* ======= */}
-{/* >>>>>>> origin/main */}
+      <HouseDetailMap />
     </div>
   );
 }

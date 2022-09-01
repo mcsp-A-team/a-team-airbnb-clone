@@ -3,10 +3,7 @@ import { useContext, useState } from "react";
 import { NavContext } from "../navbar/NavContext";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-<<<<<<< HEAD
 // import NavExplorer from "./NavExplorer";
-=======
->>>>>>> origin/main
 
 export default function SearchBar() {
         
