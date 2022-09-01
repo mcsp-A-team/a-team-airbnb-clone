@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-import NavExplorer from "./NavExplorer";
+// import NavExplorer from "./NavExplorer";
 
 export default function SearchBar() {
   return (
