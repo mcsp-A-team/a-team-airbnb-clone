@@ -7,8 +7,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 
+//this is old code
 // const pool = new pg.Pool({ database: "airbnb-clone" });
 
+//change to this
 const pool = new Pool({
   // Format: postgres://user:password@host:5432/database
   connectionString: process.env.DATABASE_URL,
