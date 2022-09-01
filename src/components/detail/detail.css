@@ -1,30 +1,204 @@
-/* HOUSE DETAIL CSS */
+/* ---------------- HOUSE DETAIL CSS --------------------*/
 .house-detail {
-    min-height: 100vh;
-    overflow: auto;
-    padding: 0 4rem;
-  }
-  
-  .house-detail-name {
-    display: flex;
-    font-size: 1.5rem;
-    padding: 1rem 0;
-    justify-content: left;
-  }
-  
-  .house-detail-sub {
-    display: flex;
-    gap: 0.5rem;
-    padding-bottom: 1rem;
-  }
-  
-  .house-detail-rating {
-    display: flex;
-    gap: 0.25rem;
-  }
-  
-  .house-detail-review-button button {
-    text-decoration: underline;
-    border: none;
-    background-color: white;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: auto;
+  padding: 0 4rem;
+  max-width: 1300px;
+  word-wrap: break-word;
+  margin: auto;
+}
+
+.house-detail-name {
+  display: flex;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  justify-content: left;
+}
+
+.house-detail-sub {
+  display: flex;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.house-detail-rating {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.house-detail-review-button button {
+  text-decoration: underline;
+  border: none;
+  background-color: white;
+}
+
+/* ---------------- HOUSE DETAIL IMAGES --------------------*/
+.house-detail-image {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 350px); */
+  height: 28.75rem;
+  max-height: 18.75rem;
+  grid-gap: 0.5rem;
+  margin-bottom: 5px;
+}
+
+.house-detail-image-left {
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+.house-detail-image-left img {
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.house-detail-image-right {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  height: 18.75rem;
+  max-height: 18.75rem;
+  width: 100%;
+}
+
+.house-detail-image-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.house-detail-image-right img:nth-child(2) {
+  border-top-right-radius: 1rem;
+}
+
+.house-detail-image-right img:nth-child(4) {
+  border-bottom-right-radius: 1rem;
+}
+
+/* -------------- HOUSE DETAIL DESCRIPTION -----------------*/
+.house-detail-body {
+  display: grid;
+  grid-template-columns: 53% 45%;
+  grid-gap: 2%;
+}
+
+.house-detail-des-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* margin-top: 55px; */
+  margin-top: 7rem;
+}
+
+.house-detail-des-right {
+  display: grid;
+  justify-content: right;
+}
+
+.house-detail-des-right img {
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+}
+
+.house-detail-des h3 {
+  display: flex;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+}
+
+.house-detail-des p {
+  /* color: #222222; */
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+.house-detail-des-content {
+  display: flex;
+  color: #434343;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+}
+
+.house-detail-des-divider {
+  background: #ccc;
+  height: 1px;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.house-detail-des-note {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: .8rem;
+}
+
+.house-detail-des-note img {
+  height: 25px;
+}
+
+.house-detail-des-note>div p:nth-child(1) {
+  display: flex;
+  font-weight: bold;
+  padding-bottom: 0.03rem;
+}
+
+.house-detail-des-note>div p:nth-child(2) {
+  color: #717171;
+  font-size: 0.775rem;
+}
+
+.house-detail-des-cover img {
+  display: flex;
+  height: 28px;
+  margin-bottom: 10px;
+}
+
+.house-detail-des-cover p {
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.house-detail-des-cover button {
+  display: flex;
+  text-decoration: underline;
+  border: none;
+  font-weight: 500;
+}
+
+.house-detail-des-intro p {
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.house-detail-des-intro button {
+  display: flex;
+  text-decoration: underline;
+  border: none;
+  font-weight: 500;
+}
+.house-detail-des-map {
+  height: 400px;
+}
+.house-detail-des-map h3 {
+  display: flex;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.house-detail-des-map p {
+  display: flex;
+  margin-bottom: 10px;
+}
