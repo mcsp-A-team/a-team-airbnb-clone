@@ -1,0 +1,2 @@
+1. To get value from search bar, copy everything from CountrySearchResultTest.js
+and paste it in your component and change the name of your component and path of "import { NavContext } from "./NavContext";". That's it :)
