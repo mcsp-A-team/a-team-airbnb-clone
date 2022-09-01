@@ -42,13 +42,13 @@ export const Review = () => {
             paddingTop: 35,
           }}
         >
-          {randomRate}
           <AiIcons.AiFillStar />
+          {randomRate}
           <BsIcons.BsDot /> {randomReviewCount} Reviews
         </h1>
       </div>
       <div style={{ grid: "inherit" }}>
-        <div class="pb-10 grid grid-cols-2 gap-.5 ">
+        <div class="pb-10 grid grid-cols-2 gap-.5  ">
           {fakeReviews.map((f) => {
             const random = (Math.random() * 5).toFixed(1);
             return (
@@ -74,9 +74,9 @@ export const Review = () => {
           })}
         </div>
 
-        <div className="writtenReviews" class="grid grid-cols-2 gap-.5">
+        <div className="writtenReviews" class=" grid grid-cols-2 gap-.5">
           {fakeReviews.map((f) => {
-            const randomPic = faker.image.people();
+            const randomPic = faker.image.people(100, 100, true);
             return (
               <div
                 key={f + 1}
@@ -87,7 +87,7 @@ export const Review = () => {
                   alignContent: "stretch",
                   " justifyContent": "space-evenly",
                   alignItems: "flex-start",
-                  width: 350,
+                  width: 400,
                   textAlign: "left",
                   paddingBottom: 30,
                 }}

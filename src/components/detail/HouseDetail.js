@@ -13,7 +13,6 @@ function houseDetail() {
       <HouseDetailName />
       <HouseDetailSub />
       <CalendarDisplay />
-
       <Review />
     </div>
   );
