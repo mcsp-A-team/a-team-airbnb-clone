@@ -8,6 +8,7 @@ const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 
 const pool = new pg.Pool({ database: "airbnb_homes" });
 
+
 const app = express();
 app.use(cors());
 app.use(express.json());
