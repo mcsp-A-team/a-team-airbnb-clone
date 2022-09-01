@@ -15,12 +15,11 @@ export default function Home() {
         })
     }, [])
 
-    useEffect(() => {
-      axios.get('<img src="https://random.imagecdn.app/500/150">').then(res => {
-        console.log(res)
-        setRandomPicture(res.data)
-      })
-    }, [])
+    // useEffect(() => {
+    //     console.log(res)
+    //     setRandomPicture(res.data)
+    //   })
+    // }, [])
 
   return (
     <div className='flex flex-wrap justify-evenly items-center'>
