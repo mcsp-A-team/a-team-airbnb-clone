@@ -1,17 +1,18 @@
-const HouseDetailImages = ({ house }) => {
+const HouseDetailImages = ({ }) => {
   return (
     <div className="house-detail-image">
       <div className="house-detail-image-left">
-        <img src="https://a0.muscache.com/im/pictures/b4f8e3d5-91e7-4f9c-ba02-a8d46872941d.jpg?im_w=1200" alt={house} />
+        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-54354348/original/2588667a-d59d-49d1-bfa4-705a621daf87.jpeg?im_w=1200" />
       </div>
       <div className="house-detail-image-right">
-        <img src="https://a0.muscache.com/im/pictures/822436b1-0982-4bf8-8a0d-30d502d22562.jpg?im_w=1200" alt={house} />
-        <img src="https://a0.muscache.com/im/pictures/3264b76b-5a00-4e00-a2ba-7e94f69cfd6d.jpg?im_w=1200" alt={house} />
-        <img src="https://a0.muscache.com/im/pictures/300243c9-91c6-41fe-9a84-8fa065919148.jpg?im_w=1200" alt={house} />
-        <img src="https://a0.muscache.com/im/pictures/d5d1e207-7711-447d-8695-f2d2613e832d.jpg?im_w=1200" alt={house} />
+        <img src="https://a0.muscache.com/im/pictures/e6be139c-6a0c-4f15-8815-ec033532f918.jpg?im_w=720"  />
+        <img src="https://a0.muscache.com/im/pictures/4c46f03a-7fba-4ae1-8705-549d90659247.jpg?im_w=720"  />
+        <img src="https://a0.muscache.com/im/pictures/60f0ec7e-6f07-4ba5-86cd-eec3570f9b71.jpg?im_w=1200"  />
+        <img src="https://a0.muscache.com/im/pictures/8cc7514f-4562-4f57-b459-ec1319522ad1.jpg?im_w=1200"  />
       </div>
     </div>
   );
 };
 
 export default HouseDetailImages;
+

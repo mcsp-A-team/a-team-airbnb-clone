@@ -28,6 +28,10 @@
   gap: 0.25rem;
 }
 
+.house-detail-rating a {
+  text-decoration: underline;
+}
+
 .house-detail-review-button button {
   text-decoration: underline;
   border: none;
@@ -85,7 +89,7 @@
 /* -------------- HOUSE DETAIL DESCRIPTION -----------------*/
 .house-detail-body {
   display: grid;
-  grid-template-columns: 53% 45%;
+  grid-template-columns: 55% 43%;
   grid-gap: 2%;
 }
 
@@ -96,12 +100,12 @@
   margin-top: 7rem;
 }
 
-.house-detail-des-right {
+.house-detail-des-avatar {
   display: grid;
   justify-content: right;
 }
 
-.house-detail-des-right img {
+.house-detail-des-avatar img {
   border-radius: 50%;
   height: 4rem;
   width: 4rem;
@@ -173,6 +177,7 @@
   text-decoration: underline;
   border: none;
   font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 .house-detail-des-intro p {
@@ -197,9 +202,66 @@
   display: flex;
   font-size: 22px;
   font-weight: 400;
+  margin-top: 15px;
 }
 
 .house-detail-des-map p {
   display: flex;
   margin-bottom: 10px;
+}
+
+/* MAP CSS */
+.house-detail-des-map h1 {
+  font-size: 45px;
+  font-weight: 400;
+ 
+}
+
+/* LEARN MORE CSS */
+.learnmore-title h1 {
+  margin-right: 3px;
+  font-weight: 520;
+}
+.learnmore-container {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 4%;
+}
+
+.learnmore-container-left {
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+.learnmore-container-left h4 {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.learnmore-container-left p {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.learnmore-container-right {
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+.learnmore-container-right h4 {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.learnmore-container-right p {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.learnmore-container-footer a {
+  margin-left: 4px;
+  text-decoration: underline;
+  font-weight: 550;
 }
