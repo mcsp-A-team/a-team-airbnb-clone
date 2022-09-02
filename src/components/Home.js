@@ -8,7 +8,6 @@ export default function Home() {
 
   const [currentHomes, setCurrentHomes] = useState([]);
 
-
   useEffect(() => {
     axios.get("http://localhost:3004/homes").then((res) => {
       for (let i = 0; i < res.data.length; i++) {
@@ -20,13 +19,12 @@ export default function Home() {
     });
   }, []);
 
-
   const currentHomesWithUrl = urlArr.map((item, index) => {
     return { ...currentHomes[index], url: item };
   });
 
   return (
-    <div className='flex flex-wrap justify-evenly items-center mx-12'>
+    <div className="flex flex-wrap justify-evenly items-center mx-12">
       {currentHomesWithUrl.map((currentHomes) => (
         <HomePreview
           city={currentHomes.city}

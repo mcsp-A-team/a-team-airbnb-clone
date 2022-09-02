@@ -3,7 +3,7 @@ import React from "react";
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-export default function HouseDetailMap(){
+export default function HouseDetailMap() {
   // const defaultProps = {
   //   center: {
   //     lat: 10.99835602,
@@ -15,12 +15,11 @@ export default function HouseDetailMap(){
   return (
     // Important! Always set the container height explicitly
     <div className="map">
-
-    <div className="house-detail-des-map">
-            <h3>Where you’ll be</h3>
-            <p>Killeen, Texas, United States</p>
-            <h1>MAP HERE...</h1>
-    {/* <div className="house-detail-des-google" style={{ height: '100vh', width: '100%' }}>
+      <div className="house-detail-des-map">
+        <h3>Where you’ll be</h3>
+        <p>Killeen, Texas, United States</p>
+        <h1>MAP HERE...</h1>
+        {/* <div className="house-detail-des-google" style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}
         defaultCenter={defaultProps.center}
@@ -33,7 +32,7 @@ export default function HouseDetailMap(){
         />
       </GoogleMapReact>
     </div> */}
-    </div>
+      </div>
     </div>
   );
 }
