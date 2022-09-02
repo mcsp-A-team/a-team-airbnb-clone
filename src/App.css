@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.home-img{
+  display: block;
+  width: 300px;
+  height: 300px;
+ 
+}
+
+.dash-board{
+  padding-left: 48px;
+}
+
+.text-display{
+  width: 250px;
+  font-size: 15px;
+   white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+input{
+  border-width:0px;
+border:none;
+outline:none;
+}

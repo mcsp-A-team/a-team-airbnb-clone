@@ -1,19 +1,19 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { NavContext } from "../navbar/NavContext";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 // import NavExplorer from "./NavExplorer";
 
 export default function SearchBar() {
-        
-  const {searchInput, onChangeInput } = useContext(NavContext);
-  // console.log(searchInput);
+  const { searchInput, onChangeInput, getHomesByCountry } =
+    useContext(NavContext);
+  console.log(searchInput);
   const navigate = useNavigate();
   const navigateClick = () => {
-    navigate(`/${searchInput}`);
+    getHomesByCountry(searchInput);
+    navigate(`/search-results`);
   };
-
 
   return (
     <div>
@@ -91,7 +91,7 @@ export default function SearchBar() {
         <div className="flex-initial">
           <div className="flex justify-end items-center relative">
             <div className="flex mr-4 items-center">
-              <a className="inline-block py-2 px-3 rounded-full" href="#">
+              <a className="inline-block py-2 px-3 rounded-full" href="/">
                 <div className="flex items-center relative cursor-pointer whitespace-nowrap">
                   Become a host
                 </div>
