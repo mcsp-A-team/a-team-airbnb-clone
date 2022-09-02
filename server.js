@@ -13,10 +13,8 @@ const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 //change to this
 const pool = new Pool({
   // Format: postgres://user:password@host:5432/database
-  connectionString: process.env.DATABASE_URL,
-  ...(process.env.NODE_ENV === "production"
-    ? { ssl: { rejectUnauthorized: false } }
-    : {}),
+  connectionString: DATABASE_URL,
+  ...(NODE_ENV === "production" ? { ssl: { rejectUnauthorized: false } } : {}),
 });
 
 pool.connect((err) => {
@@ -27,7 +25,6 @@ pool.connect((err) => {
     console.log("PostgresSQL Connected");
   }
 });
-
 
 const app = express();
 app.use(cors());
