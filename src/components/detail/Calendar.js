@@ -39,7 +39,7 @@ export const CalendarDisplay = () => {
           flexWrap: "nowrap",
           alignContent: "center",
           justifContent: "space-eve",
-          width: 620,
+          // width: 620,
           height: 730,
           paddingTop: 20,
           padding: 80,
