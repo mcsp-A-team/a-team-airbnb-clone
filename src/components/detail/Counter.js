@@ -1,7 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export const Counter = () => {
-  const [guest, setGuest] = useState(false);
+  const refOne = useRef(null);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    // event listeners
+
+    document.addEventListener("click", hideOnClickOutside, true);
+  }, []);
 
   const [adultCounter, setAdultCounter] = useState(1);
 
@@ -52,12 +59,20 @@ export const Counter = () => {
   };
   let numOfGuest = childrenCounter + infantCounter + adultCounter + petCounter;
 
+  const hideOnClickOutside = (event) => {
+    if (refOne.current && !refOne.current.contains(event.target)) {
+      setOpen(false);
+    }
+  };
+
   return (
-    <div>
+    <div ref={refOne}>
       <input
         value={`${numOfGuest} guest`}
         className="input"
-        onClick={() => setGuest((guest) => !guest)}
+        onClick={() => {
+          setOpen((open) => !open);
+        }}
         onChange={() => console.log(numOfGuest)}
         style={{
           textAlign: "center",
@@ -67,7 +82,7 @@ export const Counter = () => {
           height: 50,
         }}
       ></input>
-      {guest && (
+      {open && (
         <>
           <div
             style={{
