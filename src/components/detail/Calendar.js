@@ -30,7 +30,7 @@ export const CalendarDisplay = () => {
   const [enterDate, SetEnterDate] = useState(false);
 
   return (
-    <div>
+    <div style={{ width: "53%" }}>
       <div
         style={{
           borderTop: " .5px solid #cdcaca",
@@ -39,7 +39,7 @@ export const CalendarDisplay = () => {
           flexWrap: "nowrap",
           alignContent: "center",
           justifContent: "space-eve",
-          width: 700,
+          width: "100%",
           paddingTop: 20,
           padding: 80,
         }}
