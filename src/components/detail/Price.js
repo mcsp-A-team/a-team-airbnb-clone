@@ -50,7 +50,7 @@ export const Price = () => {
   };
 
   return (
-    <div style={{ position: "relative", top: 0 }}>
+    <div style={{ position: "relative", top: 90 }}>
       <div
         style={{
           backgroundColor: "white",
