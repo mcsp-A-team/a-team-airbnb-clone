@@ -33,13 +33,14 @@ export const CalendarDisplay = () => {
     <div style={{ width: "53%" }}>
       <div
         style={{
-          borderTop: " .5px solid #cdcaca",
+          // borderTop: " .5px solid #cdcaca",
           display: "flex",
           flexDirection: "column",
           flexWrap: "nowrap",
           alignContent: "center",
           justifContent: "space-eve",
-          width: "100%",
+          width: 620,
+          height: 730,
           paddingTop: 20,
           padding: 80,
         }}

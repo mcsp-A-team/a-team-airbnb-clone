@@ -10,10 +10,10 @@ import "./detail.css";
 // import axios from "axios";
 
 import { Review } from "./Reviews";
-import { CalendarDisplay } from "./Calendar";
+// import { CalendarDisplay } from "./Calendar";
 import { Price } from "./Price";
 
-function houseDetail() {
+function HouseDetail() {
   // let { id } = useParams();
   // useEffect(() => {
   //   axios.get(`http://localhost:3005/housedetail/${id}`).then((response) => {
@@ -32,11 +32,11 @@ function houseDetail() {
         <HouseDetailDescription />
         <Price />
       </div>
-      <CalendarDisplay />
+      {/* <CalendarDisplay /> */}
       <Review />
       {/* <HouseDetailMap /> */}
     </div>
   );
 }
 
-export default houseDetail;
+export default HouseDetail;

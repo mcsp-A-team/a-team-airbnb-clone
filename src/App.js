@@ -1,11 +1,16 @@
 import "./App.css";
 
+
+
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
 } from "react-router-dom";
+
+
+
 
 import { useContext } from "react";
 import { NavContext } from "./components/navbar/NavContext";

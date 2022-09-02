@@ -1,7 +1,7 @@
 const HouseDetailName = ({house}) => {
     
     return (
-        <h1 className="house-detail-name">{house} add house name</h1>
+        <h1 className="house-detail-name">{house} The Overlook at Lake Belton | Luxury Villa | Pool</h1>
     )
 }
 
