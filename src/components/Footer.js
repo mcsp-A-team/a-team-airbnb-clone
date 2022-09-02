@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <>
-    <footer className='flex absolute bottom-0 border-t-1 border-solid border-gray-500 w-full h-12 text-sm justify-between p-4 px-8 items-center'>
+    <footer className='flex fixed bottom-0 border-t-1 border-solid border-gray-500 w-full h-12 text-sm justify-between p-4 px-8 items-center bg-white'>
         <ul className='flex space-x-3 text-gray-600'>
             <li>
                 &copy; 2022 Airbnb, Inc.  

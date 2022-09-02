@@ -1,24 +1,18 @@
 const express = require("express");
 const cors = require("cors");
-//this is matth's code: const pg = require("pg");
 const { Pool } = require("pg");
 const dotenv = require("dotenv");
 
 dotenv.config();
 const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 
-//this is old code
-// const pool = new pg.Pool({ database: "airbnb-clone" });
-
-//change to this
 const pool = new Pool({
-  // Format: postgres://user:password@host:5432/database
   connectionString: DATABASE_URL,
   ...(NODE_ENV === "production" ? { ssl: { rejectUnauthorized: false } } : {}),
 });
 
+//Connected Database
 pool.connect((err) => {
-  //Connected Database
   if (err) {
     console.log(err);
   } else {
@@ -45,7 +39,7 @@ app.get("/homes/:country", (req, res, next) => {
     .then((data) => {
       const home = data.rows;
       if ([0]) {
-        res.send([home]);
+        res.send(home);
       }
     })
     .catch(next);
