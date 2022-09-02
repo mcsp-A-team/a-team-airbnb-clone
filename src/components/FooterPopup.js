@@ -3,7 +3,7 @@ import React from 'react'
 export default function FooterPopup({ footerPopup }) {
     if (footerPopup) {
         return (
-            <div className='flex w-full justify-between px-16 absolute bottom-0 mb-10 text-sm'>
+            <div className='flex w-full justify-between px-16 fixed bottom-0 mb-10 text-sm bg-white'>
                 <div className='flex flex-col space-y-4'>
                     <p className='font-bold'>Support</p>
                     <a href={'#'}>Help Center</a>
