@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import HomePreview from './HomePreview';
+import { v4 } from 'uuid'
 
 export default function Home() {
 
   const [currentHomes, setCurrentHomes] = useState([]);
-  const [randomPicture, setRandomPicture] = useState()
 
     useEffect(() => {
         axios.get('http://localhost:3004/homes').then(res => {
@@ -22,8 +22,8 @@ export default function Home() {
     // }, [])
 
   return (
-    <div className='flex flex-wrap justify-evenly items-center'>
-      {currentHomes.map((currentHomes) => <HomePreview city={currentHomes.city} state={currentHomes.state}  picture={randomPicture}/>)}
+    <div className='flex flex-wrap justify-evenly items-center mx-12'>
+      {currentHomes.map((currentHomes) => <HomePreview key={v4()} city={currentHomes.city} state={currentHomes.state}/>)}
     </div>
   )
 }

@@ -13,8 +13,8 @@ const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 //change to this
 const pool = new Pool({
   // Format: postgres://user:password@host:5432/database
-  connectionString: process.env.DATABASE_URL,
-  ...(process.env.NODE_ENV === "production"
+  connectionString: DATABASE_URL,
+  ...(NODE_ENV === "production"
     ? { ssl: { rejectUnauthorized: false } }
     : {}),
 });

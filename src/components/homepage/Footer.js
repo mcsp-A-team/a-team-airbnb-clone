@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import globe from '../assets/Globe_icon.svg'
+import globe from '../../assets/Globe_icon.svg'
 import FooterPopup from './FooterPopup'
 
 export default function Footer() {
@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <>
-    <footer className='flex absolute bottom-0 border-t-1 border-solid border-gray-500 w-full h-12 text-sm justify-between p-4 px-8 items-center'>
+    <footer className='flex fixed bg-white bottom-0 border-t-1 border-solid border-gray-500 w-full h-12 text-sm justify-between p-4 px-20 my-auto items-center'>
         <ul className='flex space-x-3 text-gray-600'>
             <li>
                 &copy; 2022 Airbnb, Inc.  
@@ -45,13 +45,14 @@ export default function Footer() {
         <ul className='flex font-semibold items-center space-x-3'>
             <li className='flex space-x-2'>
                 <img className='w-4 h-4' src={globe} />
-                <p>English (US)</p>
+                <a href={'#'}><p className='hover:underline' >English (US)</p></a>
+            </li>
+            <li className='flex'>
+                <p>$&nbsp;</p>
+                <a href={'#'} className='hover:underline'>USD</a>
             </li>
             <li>
-                $ USD
-            </li>
-            <li className='hover:font-bold'>
-                Support & resources
+                <a href={'#'} className='hover:underline'>Support & resources</a>
             </li>
             <li>
                 <button onClick={() => handleFooterPopup()} >&#94;</button>
