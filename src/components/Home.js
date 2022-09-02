@@ -5,10 +5,9 @@ import HomePreview from "./HomePreview";
 
 export default function Home() {
   const { urlArr } = useContext(NavContext);
-  // console.log('home', urlArr);
 
   const [currentHomes, setCurrentHomes] = useState([]);
-  // const [randomPicture, setRandomPicture] = useState();
+
 
   useEffect(() => {
     axios.get("http://localhost:3004/homes").then((res) => {
@@ -21,22 +20,13 @@ export default function Home() {
     });
   }, []);
 
-  //unnecessary code
-  // useEffect(() => {
-  //   axios.get('<img src="https://random.imagecdn.app/500/150">').then(res => {
-  //     console.log(res)
-  //     setRandomPicture(res.data)
-  //   })
-  // }, [])
-  // console.log(currentHomes)
 
   const currentHomesWithUrl = urlArr.map((item, index) => {
     return { ...currentHomes[index], url: item };
   });
-  // console.log(currentHomesWithUrl);
 
   return (
-    <div className="dash-board flex flex-wrap justify-evenly items-center pr-20">
+    <div className='flex flex-wrap justify-evenly items-center mx-12'>
       {currentHomesWithUrl.map((currentHomes) => (
         <HomePreview
           city={currentHomes.city}
