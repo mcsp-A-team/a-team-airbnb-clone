@@ -50,7 +50,7 @@ export const Price = () => {
   };
 
   return (
-    <div>
+    <div style={{ position: "relative", top: 0 }}>
       <div
         style={{
           backgroundColor: "white",
@@ -61,6 +61,7 @@ export const Price = () => {
           flexWrap: "nowrap",
           alignContent: "center",
           position: "sticky",
+          top: 0,
           border: "1 solid rgb(221, 221, 221)",
           borderRadius: 12,
           padding: 24,
