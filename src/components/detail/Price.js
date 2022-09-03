@@ -5,7 +5,9 @@ import { DateRange } from "react-date-range";
 import format from "date-fns/format";
 import { Counter } from "./Counter";
 import * as AiIcons from "react-icons/ai";
-
+import Rate from "./Rate";
+import HouseDetailReview from "./HouseDetailReview";
+import PricePerNight from "./PricePerNight";
 export const Price = () => {
   const [range, setRange] = useState([
     {
@@ -21,8 +23,6 @@ export const Price = () => {
 
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
-  let days = "";
-  // let numOfGuest = 1;
 
   useEffect(() => {
     setStart(format(range[0].startDate, "MM/dd/yyy"));
@@ -41,6 +41,13 @@ export const Price = () => {
       setOpen(false);
     }
   };
+  const difference = (
+    Math.abs(range[0].startDate - range[0].endDate) /
+    1000 /
+    60 /
+    60 /
+    24
+  ).toFixed(0);
 
   // Hide on outside click
   const hideOnClickOutside = (event) => {
@@ -48,13 +55,16 @@ export const Price = () => {
       setOpen(false);
     }
   };
+  const discount = 60;
+  const cleaningFee = 350;
+  const serviceFee = 210;
 
   return (
     <div style={{ position: "relative", top: 90 }}>
       <div
         style={{
           backgroundColor: "white",
-          height: 400,
+          height: "auto",
           width: 400,
           display: "flex",
           flexDirection: "column",
@@ -83,7 +93,7 @@ export const Price = () => {
               textDecoration: "line-through",
             }}
           >
-            $920
+            ${+PricePerNight + +discount}
           </span>
           <span
             style={{
@@ -91,11 +101,13 @@ export const Price = () => {
               paddingRight: 40,
             }}
           >
-            <strong> $816</strong> night
+            <strong> ${PricePerNight}</strong> night
           </span>
           <AiIcons.AiFillStar />
-          <span>4.95 · </span>
-          <span style={{ textDecoration: "underline" }}>159 reviews</span>
+          <span>{Rate} · </span>
+          <span style={{ textDecoration: "underline" }}>
+            {HouseDetailReview} reviews
+          </span>
         </div>
         <div>
           <input
@@ -125,21 +137,106 @@ export const Price = () => {
           </div>
           <Counter />
         </div>
-        <button
-          style={{
-            textAlign: "center",
-            border: "1px solid",
-            backgroundImage:
-              "linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%)",
-            borderRadius: 10,
-            width: 300,
-            height: 50,
-            color: "white",
-            fontSize: 18,
-          }}
-        >
-          Check availabilty
-        </button>
+        {start !== end ? (
+          <button
+            style={{
+              textAlign: "center",
+              border: "1px solid",
+              backgroundImage:
+                "linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%)",
+              borderRadius: 10,
+              width: 300,
+              height: 50,
+              color: "white",
+              fontSize: 18,
+            }}
+          >
+            Reserve
+          </button>
+        ) : (
+          <button
+            style={{
+              textAlign: "center",
+              border: "1px solid",
+              backgroundImage:
+                "linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%)",
+              borderRadius: 10,
+              width: 300,
+              height: 50,
+              color: "white",
+              fontSize: 18,
+            }}
+          >
+            Check availabilty
+          </button>
+        )}
+        {start !== end ? (
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <span style={{ paddingBottom: 20, paddingTop: 20 }}>
+              You won't be charged yet
+            </span>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "300px",
+                  justifyContent: "space-between",
+                  paddingBottom: 20,
+                }}
+              >
+                <span style={{ textDecoration: "underline" }}>
+                  ${PricePerNight} x {difference} nights
+                </span>
+                <span>${PricePerNight * difference}</span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "300px",
+                  justifyContent: "space-between",
+                  paddingBottom: 20,
+                }}
+              >
+                <span style={{ textDecoration: "underline" }}>
+                  Cleaning fee
+                </span>
+                <span>${cleaningFee}</span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "300px",
+                  justifyContent: "space-between",
+                  paddingBottom: 20,
+                  borderBottom: "0.5px solid rgb(205, 202, 202)",
+                }}
+              >
+                <span style={{ textDecoration: "underline" }}>Service fee</span>
+                <span>${serviceFee}</span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "300px",
+                  justifyContent: "space-between",
+                  paddingBottom: 20,
+                  paddingTop: 20,
+                }}
+              >
+                <span>
+                  <strong>Total before taxes</strong>
+                </span>
+                <span>
+                  ${serviceFee + cleaningFee + PricePerNight * difference}
+                </span>
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as BsIcons from "react-icons/bs";
 import * as BiIcons from "react-icons/bi";
+import * as IoIcons from "react-icons/io";
 
 export const Counter = () => {
   const refOne = useRef(null);
@@ -59,7 +60,7 @@ export const Counter = () => {
       setPetCounter(petCounter - 1);
     }
   };
-  let numOfGuest = childrenCounter + infantCounter + adultCounter + petCounter;
+  let numOfGuest = childrenCounter + infantCounter + adultCounter;
 
   const hideOnClickOutside = (event) => {
     if (refOne.current && !refOne.current.contains(event.target)) {
@@ -68,10 +69,18 @@ export const Counter = () => {
   };
 
   return (
-    <div ref={refOne}>
-      <input
-        value={`${numOfGuest} guest`}
-        className="input"
+    <div
+      ref={refOne}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        paddingBottom: 20,
+      }}
+    >
+      <div
+        // value={`${numOfGuest} guest`}
+        // className="input"
         onClick={() => {
           setOpen((open) => !open);
         }}
@@ -82,10 +91,52 @@ export const Counter = () => {
           borderRadius: 5,
           width: 200,
           height: 50,
+          padding: 10,
+          display: "flex",
+          flexDirection: "row",
+          alignContent: "center",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
-      ></input>
+      >
+        {petCounter === 0 && numOfGuest === 1
+          ? `${numOfGuest} guest`
+          : petCounter === 0 && numOfGuest > 1
+          ? `${numOfGuest} guests`
+          : petCounter === 1 && numOfGuest === 1
+          ? `${numOfGuest} guest, ${petCounter} pet.`
+          : petCounter > 1 && numOfGuest === 1
+          ? `${numOfGuest} guest, ${petCounter} pets.`
+          : petCounter > 1 && numOfGuest > 1
+          ? `${numOfGuest} guests, ${petCounter} pets.`
+          : `${numOfGuest} guests, ${petCounter} pet.`}
+        <div
+          style={{
+            display: "flex",
+          }}
+        >
+          {!open ? <IoIcons.IoIosArrowDown /> : <IoIcons.IoIosArrowUp />}
+        </div>
+      </div>
+
       {open && (
-        <>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "wrap",
+            alignContent: "center",
+            justifyContent: "space-around",
+            alignItems: "flex-start",
+            width: 300,
+            position: "relative",
+            // top: "20px",
+            height: "302px",
+            backgroundColor: "white",
+            borderRadius: "5px",
+            boxShadow: " rgb(0 0 0 / 12%) 0px 6px 16px",
+          }}
+        >
           <div
             style={{
               display: "flex",
@@ -279,7 +330,7 @@ export const Counter = () => {
                   <BiIcons.BiMinusCircle size={30} />
                 </button>
               ) : (
-                <button donClick={handlePetMinus}>
+                <button onClick={handlePetMinus}>
                   <BiIcons.BiMinusCircle size={30} />
                 </button>
               )}
@@ -295,7 +346,7 @@ export const Counter = () => {
               </button>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
