@@ -79,13 +79,23 @@ export const Price = () => {
           <span
             style={{
               fontSize: 20,
+              paddingRight: 5,
+              textDecoration: "line-through",
+            }}
+          >
+            $920
+          </span>
+          <span
+            style={{
+              fontSize: 20,
               paddingRight: 40,
             }}
           >
-            <strong>$816</strong> night
+            <strong> $816</strong> night
           </span>
           <AiIcons.AiFillStar />
-          <span>4.95 · 159 reviews</span>
+          <span>4.95 · </span>
+          <span style={{ textDecoration: "underline" }}>159 reviews</span>
         </div>
         <div>
           <input
@@ -124,8 +134,6 @@ export const Price = () => {
             borderRadius: 10,
             width: 300,
             height: 50,
-            backgroundPosition:
-              "calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%)",
             color: "white",
             fontSize: 18,
           }}

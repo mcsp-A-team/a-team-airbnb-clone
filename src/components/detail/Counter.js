@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
+import * as BsIcons from "react-icons/bs";
+import * as BiIcons from "react-icons/bi";
 
 export const Counter = () => {
   const refOne = useRef(null);
@@ -107,18 +109,13 @@ export const Counter = () => {
               </span>
               <span>Age 13 +</span>
             </div>
-            <div>
-              <button
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: 15,
-                  height: 25,
-                  width: 25,
-                  border: "1px solid gray",
-                }}
-                onClick={handleAdultMinus}
-              >
-                -
+            <div
+              style={{
+                display: "flex",
+              }}
+            >
+              <button onClick={handleAdultMinus}>
+                <BiIcons.BiMinusCircle size={30} />
               </button>
               <span
                 style={{
@@ -127,17 +124,8 @@ export const Counter = () => {
               >
                 {adultCounter}
               </span>
-              <button
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: 15,
-                  height: 25,
-                  width: 25,
-                  border: "1px solid gray",
-                }}
-                onClick={handleAdultPlus}
-              >
-                +
+              <button onClick={handleAdultPlus}>
+                <BsIcons.BsPlusCircle size={26} />
               </button>
             </div>
           </div>
@@ -164,19 +152,24 @@ export const Counter = () => {
               </span>
               <span>Ages 2-12</span>
             </div>
-            <div>
-              <button
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: 15,
-                  height: 25,
-                  width: 25,
-                  border: "1px solid gray",
-                }}
-                onClick={handleChildMinus}
-              >
-                -
-              </button>
+            <div
+              style={{
+                display: "flex",
+              }}
+            >
+              {childrenCounter === 0 ? (
+                <button
+                  disabled={"disabled"}
+                  style={{ cursor: "not-allowed", opacity: 0.2 }}
+                  onClick={handleChildMinus}
+                >
+                  <BiIcons.BiMinusCircle size={30} />
+                </button>
+              ) : (
+                <button onClick={handleChildMinus}>
+                  <BiIcons.BiMinusCircle size={30} />
+                </button>
+              )}
               <span
                 style={{
                   padding: 10,
@@ -184,17 +177,8 @@ export const Counter = () => {
               >
                 {childrenCounter}
               </span>
-              <button
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: 15,
-                  height: 25,
-                  width: 25,
-                  border: "1px solid gray",
-                }}
-                onClick={handleChildPlus}
-              >
-                +
+              <button onClick={handleChildPlus}>
+                <BsIcons.BsPlusCircle size={26} />
               </button>
             </div>
           </div>
@@ -221,19 +205,24 @@ export const Counter = () => {
               </span>
               <span>Under 2</span>
             </div>
-            <div>
-              <button
-                style={{
-                  backgroundColor: "white",
-                  border: "1px solid gray",
-                  borderRadius: 15,
-                  height: 25,
-                  width: 25,
-                }}
-                onClick={handleInfantMinus}
-              >
-                -
-              </button>
+            <div
+              style={{
+                display: "flex",
+              }}
+            >
+              {infantCounter === 0 ? (
+                <button
+                  disabled={"disabled"}
+                  style={{ cursor: "not-allowed", opacity: 0.2 }}
+                  onClick={handleInfantMinus}
+                >
+                  <BiIcons.BiMinusCircle size={30} />
+                </button>
+              ) : (
+                <button onClick={handleInfantMinus}>
+                  <BiIcons.BiMinusCircle size={30} />
+                </button>
+              )}
               <span
                 style={{
                   padding: 10,
@@ -241,17 +230,8 @@ export const Counter = () => {
               >
                 {infantCounter}
               </span>
-              <button
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: 15,
-                  height: 25,
-                  width: 25,
-                  border: "1px solid gray",
-                }}
-                onClick={handleInfantPlus}
-              >
-                +
+              <button onClick={handleInfantPlus}>
+                <BsIcons.BsPlusCircle size={26} />
               </button>
             </div>
           </div>
@@ -285,19 +265,24 @@ export const Counter = () => {
                 Bringing a service animal?
               </span>
             </div>
-            <div>
-              <button
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: 15,
-                  height: 25,
-                  width: 25,
-                  border: "1px solid gray",
-                }}
-                onClick={handlePetMinus}
-              >
-                -
-              </button>
+            <div
+              style={{
+                display: "flex",
+              }}
+            >
+              {petCounter === 0 ? (
+                <button
+                  disabled={"disabled"}
+                  style={{ cursor: "not-allowed", opacity: 0.2 }}
+                  onClick={handlePetMinus}
+                >
+                  <BiIcons.BiMinusCircle size={30} />
+                </button>
+              ) : (
+                <button donClick={handlePetMinus}>
+                  <BiIcons.BiMinusCircle size={30} />
+                </button>
+              )}
               <span
                 style={{
                   padding: 10,
@@ -305,17 +290,8 @@ export const Counter = () => {
               >
                 {petCounter}
               </span>
-              <button
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: 15,
-                  height: 25,
-                  width: 25,
-                  border: "1px solid gray",
-                }}
-                onClick={handlePetPlus}
-              >
-                +
+              <button onClick={handlePetPlus}>
+                <BsIcons.BsPlusCircle size={26} />
               </button>
             </div>
           </div>

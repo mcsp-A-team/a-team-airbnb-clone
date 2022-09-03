@@ -24,7 +24,7 @@ function HouseDetail() {
 
   return (
     <div className="house-detail">
-      <SearchBar />
+      {/* <SearchBar /> */}
       <HouseDetailName />
       <HouseDetailSub />
       <HouseDetailImages />
