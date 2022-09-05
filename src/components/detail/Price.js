@@ -5,6 +5,7 @@ import { DateRange } from "react-date-range";
 import format from "date-fns/format";
 import { Counter } from "./Counter";
 import * as AiIcons from "react-icons/ai";
+import * as IoIcons from "react-icons/io";
 import Rate from "./Rate";
 import HouseDetailReview from "./HouseDetailReview";
 import PricePerNight from "./PricePerNight";
@@ -16,8 +17,11 @@ export const Price = () => {
       key: "selection",
     },
   ]);
+
   const [open, setOpen] = useState(false);
   // const [guest, setGuest] = useState(false);
+  const [showCleaningFee, setShowCleaningFee] = useState(false);
+  const [showServiceFee, setShowServiceFee] = useState(false);
 
   const refOne = useRef(null);
 
@@ -190,6 +194,32 @@ export const Price = () => {
                 </span>
                 <span>${PricePerNight * difference}</span>
               </div>
+              {showCleaningFee ? (
+                <div
+                  style={{
+                    backgroundColor: "#ffffff",
+                    height: "auto",
+                    width: 400,
+                    display: "flex",
+                    alignContent: "center",
+                    border: "1 solid rgb(221, 221, 221)",
+                    borderRadius: 12,
+                    padding: 24,
+                    boxShadow: "rgb(0 0 0 / 28%) 0px 8px 28px",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    position: "absolute",
+                    left: -290,
+                    top: 225,
+                  }}
+                >
+                  <button onClick={() => setShowCleaningFee(!showCleaningFee)}>
+                    <IoIcons.IoIosClose size={30} />
+                  </button>
+                  One-time fee charged by host to cover the cost of cleaning
+                  their space.
+                </div>
+              ) : null}
               <div
                 style={{
                   display: "flex",
@@ -199,11 +229,40 @@ export const Price = () => {
                   paddingBottom: 20,
                 }}
               >
-                <span style={{ textDecoration: "underline" }}>
+                <span
+                  onClick={() => setShowCleaningFee(!showCleaningFee)}
+                  style={{ textDecoration: "underline" }}
+                >
                   Cleaning fee
                 </span>
                 <span>${cleaningFee}</span>
               </div>
+              {showServiceFee ? (
+                <div
+                  style={{
+                    backgroundColor: "#ffffff",
+                    height: "auto",
+                    width: 400,
+                    display: "flex",
+                    alignContent: "center",
+                    border: "1 solid rgb(221, 221, 221)",
+                    borderRadius: 12,
+                    padding: 24,
+                    boxShadow: "rgb(0 0 0 / 28%) 0px 8px 28px",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    position: "absolute",
+                    left: -290,
+                    top: 270,
+                  }}
+                >
+                  <button onClick={() => setShowServiceFee(!showServiceFee)}>
+                    <IoIcons.IoIosClose size={30} />
+                  </button>
+                  This helps us run our platform and offer services like 24/7
+                  support on your trip.
+                </div>
+              ) : null}
               <div
                 style={{
                   display: "flex",
@@ -214,9 +273,15 @@ export const Price = () => {
                   borderBottom: "0.5px solid rgb(205, 202, 202)",
                 }}
               >
-                <span style={{ textDecoration: "underline" }}>Service fee</span>
+                <span
+                  onClick={() => setShowServiceFee(!showServiceFee)}
+                  style={{ textDecoration: "underline" }}
+                >
+                  Service fee
+                </span>
                 <span>${serviceFee}</span>
               </div>
+
               <div
                 style={{
                   display: "flex",
