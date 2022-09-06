@@ -7,9 +7,8 @@ export default function HomePreview({ city, state, picture, country }) {
 
   return (
     <div className="group mx-1 my-4 flex flex-col items-start w-72">
-      <a href="/houseDetail" target="-_tab">
-        <img className="w-70 rounded-lg home-img" src={picture} alt="img" />
-      </a>
+      {/* <a href='/housedetail' target="-_tab" ><img className="w-70 rounded-lg home-img" src={picture} alt="img"/></a> */}
+      <img className="w-70 rounded-lg home-img" src={picture} alt="img" />
       <div className="flex justify-between items-center w-full mt-2">
         <p className="font-semibold text-sm">
           {city}, {state}, {country}

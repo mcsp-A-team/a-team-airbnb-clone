@@ -1,7 +1,7 @@
 import HouseDetailReview from "./HouseDetailReview";
 import Rate from "./Rate";
 
-const HouseDetailSub = ({}) => {
+const HouseDetailSub = ({ house }) => {
   return (
     <div className="house-detail-sub">
       <div className="house-detail-rating">
@@ -19,7 +19,7 @@ const HouseDetailSub = ({}) => {
             href="https://www.airbnb.com/s/Belton--Texas--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&search_type=autocomplete_click&query=Belton%2C%20TX&date_picker_type=calendar&source=structured_search_input_header&price_filter_input_type=0&place_id=ChIJRXpxaQ1ARYYRcP8Fy5TVOHE"
             class="_1sikdxcl"
           >
-            Belton, Texas, UnitedStates
+            {house[0].city}, {house[0].state}, {house[0].country}
           </a>
         </span>
       </div>
