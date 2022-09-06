@@ -44,7 +44,7 @@ export default function Home() {
           <div
             key={i++}
             onClick={() => {
-              window.open(`/homes/${i}`);
+              window.open(`/housedetail/${i}`);
             }}
           >
             <HomePreview
