@@ -8,7 +8,7 @@ export default function Home() {
   const { urlArr } = useContext(NavContext);
 
   const [currentHomes, setCurrentHomes] = useState([]);
-  // let navigate = useNavigate();
+
 
   useEffect(() => {
     axios.get("http://localhost:3004/homes").then((res) => {
@@ -25,18 +25,6 @@ export default function Home() {
     return { ...currentHomes[index], url: item };
   });
 
-  // return (
-  //   <div className='flex flex-wrap justify-evenly items-center mx-12'>
-  //     {currentHomesWithUrl.map((currentHomes, i) => (
-  // <HomePreview
-  //   city={currentHomes.city}
-  //   state={currentHomes.state}
-  //   picture={currentHomes.url}
-  //   country={currentHomes.country}
-  // />
-  //     ))}
-  //   </div>
-  // );
   return (
     <div className="flex flex-wrap justify-evenly items-center mx-12">
       {currentHomesWithUrl.map((currentHomes, i) => {

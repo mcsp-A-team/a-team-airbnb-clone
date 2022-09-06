@@ -4,13 +4,14 @@ import HouseDetailSub from "./HouseDetailSub";
 import HouseDetailImages from "./HouseDetailImages";
 // import SearchBar from "../navbar/SearchBar";
 import HouseDetailDescription from "./HouseDetailDescription";
-import HouseDetailMap from "./HouseDetailMap";
+// import HouseDetailMap from "./HouseDetailMap";
 import "./detail.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import { Review } from "./Reviews";
 // import { CalendarDisplay } from "./Calendar";
+import { Price } from "./Price";
 
 function HouseDetail() {
   let { id } = useParams();
@@ -44,10 +45,10 @@ function HouseDetail() {
       <HouseDetailImages />
       <div className="house-detail-body">
         <HouseDetailDescription />
-        {/* Price Form Here */}
+        <Price />
       </div>
       <Review />
-      <HouseDetailMap />
+      {/* <HouseDetailMap /> */}
     </div>
   );
 }
