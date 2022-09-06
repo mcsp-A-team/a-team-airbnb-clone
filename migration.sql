@@ -8,8 +8,8 @@ CREATE TABLE homes
      streetaddress VARCHAR(24) NOT NULL,
      country       VARCHAR(44) NOT NULL,
      state         VARCHAR(14) NOT NULL,
-     home_type     VARCHAR(13) NOT NULL,
-     prop_type     VARCHAR(13) NOT NULL,
+     home_type     TEXT,
+     prop_type     TEXT,
      latitude      NUMERIC(8, 4) NOT NULL,
      longitude     NUMERIC(9, 4) NOT NULL
   );

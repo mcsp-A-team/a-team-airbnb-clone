@@ -11,7 +11,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    axios.get("http://localhost:3004/homes").then((res) => {
+    axios.get("/homes").then((res) => {
       for (let i = 0; i < res.data.length; i++) {
         setCurrentHomes((prevCurrentHomes) => [
           ...prevCurrentHomes,
@@ -32,7 +32,7 @@ export default function Home() {
           <div
             key={i++}
             onClick={() => {
-              window.open(`/homes/${i}`);
+              window.open(`/housedetail/${i}`);
             }}
           >
             <HomePreview

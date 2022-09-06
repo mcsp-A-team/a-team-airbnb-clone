@@ -2,12 +2,18 @@ const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
 const dotenv = require("dotenv");
+const path = require("path");
 dotenv.config();
 const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 const pool = new Pool({
   connectionString: DATABASE_URL,
   ...(NODE_ENV === "production" ? { ssl: { rejectUnauthorized: false } } : {}),
 });
+
+const app = express();
+app.use(express.static(path.join(__dirname, "build")));
+
+
 //Connected Database
 pool.connect((err) => {
   if (err) {
@@ -16,7 +22,6 @@ pool.connect((err) => {
     console.log("PostgresSQL Connected");
   }
 });
-const app = express();
 app.use(cors());
 app.use(express.json());
 // GET HOMES
@@ -29,28 +34,43 @@ app.get("/homes", (req, res) => {
 app.get("/homes/:id", (req, res, next) => {
   const id = req.params.id;
   pool
-    .query("SELECT * FROM homes WHERE id = $1", [id])
-    .then((data) => {
-      const home = data.rows;
-      if ([0]) {
-        res.send(home);
-      }
-    })
-    .catch(next);
+  .query("SELECT * FROM homes WHERE id = $1", [id])
+  .then((data) => {
+    const home = data.rows;
+    if ([0]) {
+      res.send(home);
+    }
+  })
+  .catch(next);
 });
 // GET HOMES by Country
-app.get("/homes/:country", (req, res, next) => {
+app.get("/homes/country/:country", (req, res, next) => {
   const country = req.params.country;
   pool
-    .query("SELECT * FROM homes WHERE country = $1", [country])
-    .then((data) => {
-      const home = data.rows;
-      if ([0]) {
-        res.send(home);
-      }
-    })
-    .catch(next);
+  .query("SELECT * FROM homes WHERE country = $1", [country])
+  .then((data) => {
+    const home = data.rows;
+    if ([0]) {
+      res.send(home);
+    }
+  })
+  .catch(next);
 });
+
+// GET HOMES by Property Type
+app.get("/homes/type/:prop_type", (req, res, next) => {
+  const prop_type = req.params.prop_type;
+  pool
+  .query("SELECT * FROM homes WHERE prop_type = $1", [prop_type])
+  .then((data) => {
+    const home = data.rows;
+    if ([0]) {
+      res.send(home);
+    }
+  })
+  .catch(next);
+});
+
 // DELETE HOME
 app.delete("/homes/:id", async (req, res) => {
   const { id } = req.params;
@@ -67,6 +87,8 @@ app.patch("/homes/:id", async (req, res) => {
     streetaddress,
     country,
     state,
+    home_type,
+    prop_type,
     latitude,
     longitude,
   } = req.body;
@@ -80,11 +102,13 @@ app.patch("/homes/:id", async (req, res) => {
         streetaddress = COALESCE($4, streetaddress),
         country = COALESCE($5, country),
         state = COALESCE($6, state),
-        latitude = COALESCE($6, latitude),
-        longitude = COALESCE($7, longitude),
-        WHERE id = $8
+        home_type = COALESCE($7, home_type),
+        prop_type = COALESCE($8, prop_type),
+        latitude = COALESCE($9, latitude),
+        longitude = COALESCE($10, longitude),
+        WHERE id = $11
         RETURNING *;
-          `,
+        `,
       [
         zipcode,
         city,
@@ -92,24 +116,28 @@ app.patch("/homes/:id", async (req, res) => {
         streetaddress,
         country,
         state,
+        home_type,
+        prop_type,
         latitude,
         longitude,
         id,
       ]
-    )
-    .then((data) => {
-      res.send(data.rows[0]);
+      )
+      .then((data) => {
+        res.send(data.rows[0]);
+      });
     });
-});
-// POST HOME
-app.post("/homes/", (req, res) => {
-  const {
-    zipcode,
-    city,
-    streetname,
-    streetaddress,
-    country,
-    state,
+    // POST HOME
+    app.post("/homes/", (req, res) => {
+      const {
+        zipcode,
+        city,
+        streetname,
+        streetaddress,
+        country,
+        state,
+        home_type,
+    prop_type,
     latitude,
     longitude,
   } = req.body;
@@ -124,31 +152,40 @@ app.post("/homes/", (req, res) => {
         streetaddress,
         country,
         state,
+        home_type,
+        prop_type,
         latitude,
         longitude
         )
         VALUES
-        ($1, $2, $3, $4, $5, $6, $7, $8)
+        ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
         RETURNING *;
         `,
-      [
-        zipcode,
-        city,
-        streetname,
-        streetaddress,
-        country,
-        state,
-        latitude,
-        longitude,
-      ]
-    )
-    .then((data) => {
-      res.send(data.rows[0]);
+        [
+          zipcode,
+          city,
+          streetname,
+          streetaddress,
+          country,
+          state,
+          home_type,
+          prop_type,
+          latitude,
+          longitude,
+        ]
+        )
+        .then((data) => {
+          res.send(data.rows[0]);
     })
     .catch((err) => {
       res.sendStatus(500);
     });
-});
+  });
+
+  app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+  });
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });

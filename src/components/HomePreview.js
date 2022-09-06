@@ -11,7 +11,7 @@ export default function HomePreview({ city, state, picture, country }) {
       <img className="w-70 rounded-lg home-img" src={picture} alt="img" />
       <div className="flex justify-between items-center w-full mt-2">
         <p className="font-semibold text-sm truncate">
-          {city}, {state}, {country}
+          {city}, {state}, {country},
         </p>
         <p>&#9733;{rating} </p>
       </div>

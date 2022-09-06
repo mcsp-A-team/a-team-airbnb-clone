@@ -27,7 +27,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/homes/:id" element={<HouseDetail />} />
+          <Route path="/housedetail/:id" element={<HouseDetail />} />
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
         </Routes>
