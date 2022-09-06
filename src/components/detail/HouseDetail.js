@@ -18,15 +18,16 @@ function HouseDetail() {
   const [houseObject, setHouseObject] = useState({});
   const [house, setHouse] = useState(null);
 
+
   useEffect(() => {
-    axios.get(`http://localhost:3001/homes/${id}`).then((response) => {
+    axios.get(`http://localhost:3004/homes/${id}`).then((response) => {
       console.log("House ID:", response.data[0]);
       setHouseObject(response.data);
     });
   }, [id]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/homes`).then((response) => {
+    axios.get(`http://localhost:3004/homes`).then((response) => {
       console.log("House data:", response.data);
       setHouse(response.data);
       if (house) {
@@ -34,6 +35,7 @@ function HouseDetail() {
       }
     });
   }, []);
+
 
   if (!house) return <></>;
 
