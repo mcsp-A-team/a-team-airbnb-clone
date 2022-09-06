@@ -15,7 +15,6 @@ export const CalendarDisplay = () => {
   ]);
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
-  let days = "";
 
   useEffect(() => {
     setStart(format(range[0].startDate, "MM/dd/yyy"));
@@ -30,7 +29,7 @@ export const CalendarDisplay = () => {
   const [enterDate, SetEnterDate] = useState(false);
 
   return (
-    <div style={{ width: "53%" }}>
+    <div>
       <div
         style={{
           // borderTop: " .5px solid #cdcaca",

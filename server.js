@@ -4,7 +4,6 @@ const { Pool } = require("pg");
 const dotenv = require("dotenv");
 dotenv.config();
 const { DATABASE_URL, NODE_ENV, PORT } = process.env;
-
 const pool = new Pool({
   connectionString: DATABASE_URL,
   ...(NODE_ENV === "production" ? { ssl: { rejectUnauthorized: false } } : {}),
@@ -17,7 +16,6 @@ pool.connect((err) => {
     console.log("PostgresSQL Connected");
   }
 });
-
 const app = express();
 app.use(cors());
 app.use(express.json());

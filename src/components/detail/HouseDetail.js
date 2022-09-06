@@ -33,15 +33,15 @@ function HouseDetail() {
         setHouseObject(() => house);
       }
     });
-  }, [])
+  }, []);
 
   if (!house) return <></>;
 
   return (
     <div className="house-detail">
       {/* <SearchBar /> */}
-      <HouseDetailName house={houseObject}/>
-      <HouseDetailSub house={houseObject}/>
+      <HouseDetailName house={houseObject} />
+      <HouseDetailSub house={houseObject} />
       <HouseDetailImages />
       <div className="house-detail-body">
         <HouseDetailDescription />
