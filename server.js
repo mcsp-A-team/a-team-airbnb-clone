@@ -13,7 +13,6 @@ const pool = new Pool({
 const app = express();
 app.use(express.static(path.join(__dirname, "build")));
 
-
 //Connected Database
 pool.connect((err) => {
   if (err) {
@@ -34,41 +33,41 @@ app.get("/homes", (req, res) => {
 app.get("/homes/:id", (req, res, next) => {
   const id = req.params.id;
   pool
-  .query("SELECT * FROM homes WHERE id = $1", [id])
-  .then((data) => {
-    const home = data.rows;
-    if ([0]) {
-      res.send(home);
-    }
-  })
-  .catch(next);
+    .query("SELECT * FROM homes WHERE id = $1", [id])
+    .then((data) => {
+      const home = data.rows;
+      if ([0]) {
+        res.send(home);
+      }
+    })
+    .catch(next);
 });
 // GET HOMES by Country
 app.get("/homes/country/:country", (req, res, next) => {
   const country = req.params.country;
   pool
-  .query("SELECT * FROM homes WHERE country = $1", [country])
-  .then((data) => {
-    const home = data.rows;
-    if ([0]) {
-      res.send(home);
-    }
-  })
-  .catch(next);
+    .query("SELECT * FROM homes WHERE country = $1", [country])
+    .then((data) => {
+      const home = data.rows;
+      if ([0]) {
+        res.send(home);
+      }
+    })
+    .catch(next);
 });
 
 // GET HOMES by Property Type
 app.get("/homes/type/:prop_type", (req, res, next) => {
   const prop_type = req.params.prop_type;
   pool
-  .query("SELECT * FROM homes WHERE prop_type = $1", [prop_type])
-  .then((data) => {
-    const home = data.rows;
-    if ([0]) {
-      res.send(home);
-    }
-  })
-  .catch(next);
+    .query("SELECT * FROM homes WHERE prop_type = $1", [prop_type])
+    .then((data) => {
+      const home = data.rows;
+      if ([0]) {
+        res.send(home);
+      }
+    })
+    .catch(next);
 });
 
 // DELETE HOME
@@ -122,21 +121,21 @@ app.patch("/homes/:id", async (req, res) => {
         longitude,
         id,
       ]
-      )
-      .then((data) => {
-        res.send(data.rows[0]);
-      });
+    )
+    .then((data) => {
+      res.send(data.rows[0]);
     });
-    // POST HOME
-    app.post("/homes/", (req, res) => {
-      const {
-        zipcode,
-        city,
-        streetname,
-        streetaddress,
-        country,
-        state,
-        home_type,
+});
+// POST HOME
+app.post("/homes/", (req, res) => {
+  const {
+    zipcode,
+    city,
+    streetname,
+    streetaddress,
+    country,
+    state,
+    home_type,
     prop_type,
     latitude,
     longitude,
@@ -161,30 +160,30 @@ app.patch("/homes/:id", async (req, res) => {
         ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
         RETURNING *;
         `,
-        [
-          zipcode,
-          city,
-          streetname,
-          streetaddress,
-          country,
-          state,
-          home_type,
-          prop_type,
-          latitude,
-          longitude,
-        ]
-        )
-        .then((data) => {
-          res.send(data.rows[0]);
+      [
+        zipcode,
+        city,
+        streetname,
+        streetaddress,
+        country,
+        state,
+        home_type,
+        prop_type,
+        latitude,
+        longitude,
+      ]
+    )
+    .then((data) => {
+      res.send(data.rows[0]);
     })
     .catch((err) => {
       res.sendStatus(500);
     });
-  });
+});
 
-  app.get("/*", function (req, res) {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
-  });
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
