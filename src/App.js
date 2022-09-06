@@ -1,16 +1,11 @@
 import "./App.css";
 
-
-
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
 } from "react-router-dom";
-
-
-
 
 import { useContext } from "react";
 import { NavContext } from "./components/navbar/NavContext";
@@ -22,7 +17,6 @@ import Footer from "./components/Footer";
 import Navbar from "../src/components/navbar/NavBar";
 
 // import CountrySearchResultTest from "./components/navbar/CountrySearchResultTest";
-
 
 
 function App() {

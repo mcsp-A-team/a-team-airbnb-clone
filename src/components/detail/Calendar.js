@@ -15,13 +15,10 @@ export const CalendarDisplay = () => {
   ]);
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
-  let days = "";
 
   useEffect(() => {
     setStart(format(range[0].startDate, "MM/dd/yyy"));
     setEnd(format(range[0].endDate, "MM/dd/yyy"));
-    console.log("start", start);
-    console.log("end", end);
     if (start === end) {
       SetEnterDate(false);
     } else {
@@ -41,7 +38,7 @@ export const CalendarDisplay = () => {
           flexWrap: "nowrap",
           alignContent: "center",
           justifContent: "space-eve",
-          width: 620,
+          // width: 620,
           height: 730,
           paddingTop: 20,
           padding: 80,
