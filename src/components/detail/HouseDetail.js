@@ -20,14 +20,14 @@ function HouseDetail() {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:3004/homes/${id}`).then((response) => {
+    axios.get(`/homes/${id}`).then((response) => {
       console.log("House ID:", response.data[0]);
       setHouseObject(response.data);
     });
   }, [id]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3004/homes`).then((response) => {
+    axios.get(`/homes`).then((response) => {
       console.log("House data:", response.data);
       setHouse(response.data);
       if (house) {
