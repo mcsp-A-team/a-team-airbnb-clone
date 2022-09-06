@@ -21,7 +21,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import Navbar from "../src/components/navbar/NavBar";
 
-import CountrySearchResultTest from "./components/navbar/CountrySearchResultTest";
+// import CountrySearchResultTest from "./components/navbar/CountrySearchResultTest";
 
 
 
@@ -33,7 +33,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/housedetail" element={<HouseDetail />} />
+          <Route path="/homes/:id" element={<HouseDetail />} />
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
         </Routes>

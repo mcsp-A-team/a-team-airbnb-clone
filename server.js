@@ -2,17 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
 const dotenv = require("dotenv");
-
 dotenv.config();
-const { DATABASE_URL, NODE_ENV, PORT, REACT_PORT } = process.env;
-
+const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 const pool = new Pool({
   connectionString: DATABASE_URL,
-  ...(NODE_ENV === "production"
-    ? { ssl: { rejectUnauthorized: false } }
-    : {}),
+  ...(NODE_ENV === "production" ? { ssl: { rejectUnauthorized: false } } : {}),
 });
-
 //Connected Database
 pool.connect((err) => {
   if (err) {
@@ -21,19 +16,28 @@ pool.connect((err) => {
     console.log("PostgresSQL Connected");
   }
 });
-
-
 const app = express();
 app.use(cors());
 app.use(express.json());
-
 // GET HOMES
 app.get("/homes", (req, res) => {
   pool.query("SELECT * FROM homes").then((result) => {
     res.send(result.rows);
   });
 });
-
+// GET homes by ID
+app.get("/homes/:id", (req, res, next) => {
+  const id = req.params.id;
+  pool
+    .query("SELECT * FROM homes WHERE id = $1", [id])
+    .then((data) => {
+      const home = data.rows;
+      if ([0]) {
+        res.send(home);
+      }
+    })
+    .catch(next);
+});
 // GET HOMES by Country
 app.get("/homes/:country", (req, res, next) => {
   const country = req.params.country;
@@ -47,14 +51,12 @@ app.get("/homes/:country", (req, res, next) => {
     })
     .catch(next);
 });
-
 // DELETE HOME
 app.delete("/homes/:id", async (req, res) => {
   const { id } = req.params;
   await pool.query("DELETE FROM homes WHERE id = $1", [id]);
   res.sendStatus(200);
 });
-
 // PATCH HOME
 app.patch("/homes/:id", async (req, res) => {
   const { id } = req.params;
@@ -99,7 +101,6 @@ app.patch("/homes/:id", async (req, res) => {
       res.send(data.rows[0]);
     });
 });
-
 // POST HOME
 app.post("/homes/", (req, res) => {
   const {
@@ -148,7 +149,6 @@ app.post("/homes/", (req, res) => {
       res.sendStatus(500);
     });
 });
-
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });
