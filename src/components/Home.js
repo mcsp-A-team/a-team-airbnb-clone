@@ -23,10 +23,15 @@ export default function Home() {
     return { ...currentHomes[index], url: item };
   });
 
+  // console.log(currentHomesWithUrl);
+
+  //Hung: pass id props to HomePreview
   return (
     <div className="flex flex-wrap justify-evenly items-center mx-12">
       {currentHomesWithUrl.map((currentHomes) => (
         <HomePreview
+          key={currentHomes.id}
+          id={currentHomes.id}
           city={currentHomes.city}
           state={currentHomes.state}
           picture={currentHomes.url}

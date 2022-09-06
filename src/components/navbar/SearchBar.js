@@ -8,7 +8,7 @@ import "./Navbar.css";
 export default function SearchBar() {
   const { searchInput, onChangeInput, getHomesByCountry } =
     useContext(NavContext);
-  console.log(searchInput);
+  // console.log(searchInput);
   const navigate = useNavigate();
   const navigateClick = () => {
     getHomesByCountry(searchInput);
