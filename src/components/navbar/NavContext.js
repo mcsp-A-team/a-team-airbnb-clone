@@ -27,7 +27,9 @@ export default function NavContextProvider({ children }) {
   const [searchResults, setSearchResults] = useState([]);
   const getHomesByCountry = async (input) => {
     try {
-      const response = await axios.get(`http://localhost:3004/homes/country/${input}`);
+      const response = await axios.get(
+        `/homes/country/${input}`
+      )
       setSearchResults(response.data);
     } catch (error) {
       console.log(error);

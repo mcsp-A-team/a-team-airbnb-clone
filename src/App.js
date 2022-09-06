@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import Navbar from "../src/components/navbar/NavBar";
 import SearchResults from "./components/navbar/SearchResult";
 
+
 function App() {
   // const { searchInput } = useContext(NavContext);
   const { currentHomesData } = useContext(NavContext);
@@ -25,7 +26,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path={`/housedetail/:id`} element={<HouseDetail />} />
+          <Route path="/housedetail/:id" element={<HouseDetail />} />
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/search-results" element={<SearchResults />} />

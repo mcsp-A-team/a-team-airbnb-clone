@@ -2,28 +2,18 @@ import React from "react";
 import { useContext } from "react";
 import { NavContext } from "../components/navbar/NavContext";
 
-export default function HomePreview({ city, state, picture, country, id }) {
-  let miles = (Math.random()*100).toFixed(0)
-  let price = (Math.random()*1000).toFixed(0)
-  let rating = (Math.random()*5).toFixed(2)
-  const { currentHomesData, handleClick } = useContext(NavContext);
-  // console.log(currentHomesData);
-
-
-  // console.log(currentHomesData);
+export default function HomePreview({ city, state, picture, country }) {
+  let miles = (Math.random() * 100).toFixed(0);
+  let price = (Math.random() * 1000).toFixed(0);
+  let rating = (Math.random() * 5).toFixed(2);
 
   return (
     <div className="group mx-1 my-4 flex flex-col items-start w-72">
-      <a
-        onClick={() => handleClick(id, city, state, country, price)}
-        href={`/housedetail/${currentHomesData}`}
-        target="-_tab"
-      >
-        <img className="w-70 rounded-lg home-img" src={picture} alt="img" />
-      </a>
+      {/* <a href='/housedetail' target="-_tab" ><img className="w-70 rounded-lg home-img" src={picture} alt="img"/></a> */}
+      <img className="w-70 rounded-lg home-img" src={picture} alt="img" />
       <div className="flex justify-between items-center w-full mt-2">
-        <p className="text-display font-semibold text-sm">
-          {city}, {state}, {country}
+        <p className="font-semibold text-sm truncate">
+          {city}, {state}, {country},
         </p>
         <p>&#9733;{rating} </p>
       </div>
