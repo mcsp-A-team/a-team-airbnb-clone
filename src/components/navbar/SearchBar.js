@@ -93,98 +93,45 @@ export default function SearchBar() {
 
         <div className="flex-initial">
           {showDropDown ? (
-            <div
-              style={{
-                backgroundColor: "red",
-                height: "auto",
-                width: 260,
-                position: "absolute",
-                display: "flex",
-                position: "absolute",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                top: 80,
-                backgroundColor: "white",
-                borderRadius: "5px",
-                boxShadow: " rgb(0 0 0 / 12%) 0px 6px 16px",
-              }}
-            >
-              <span
-                style={{
-                  padding: 10,
-                }}
+            <div className="flex flex-col z-10 bg-white absolute top-16 right-16 space-y-4 rounded-md p-3 pr-24 items-start shadow-lg" >
+              <span className="hover:bg-gray-200 w-full text-start"
               >
                 Messages
               </span>
-              <span
-                style={{
-                  padding: 10,
-                }}
+              <span className="hover:bg-gray-200 w-full text-start"
               >
                 Trips
               </span>
-              <span
-                style={{
-                  padding: 10,
-                  cursor: "pointer",
-                }}
+              <span className="hover:bg-gray-200 w-full text-start"
                 onClick={() => {
-                  navigate(`/wishlists`);
+                  navigate(`/wishlists`)
+                  setShowDropDown(prevShowDropDown => !prevShowDropDown)
                 }}
               >
                 Wishlists
               </span>
-              <div
-                style={{
-                  borderBottom: "0.5px solid rgb(205, 202, 202)",
-                  borderTop: "0.5px solid rgb(205, 202, 202)",
-                  display: "flex",
-                  width: "auto",
-                  width: 260,
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                }}
-              >
-                <span
-                  style={{
-                    padding: 10,
-                  }}
-                >
+              <div className="flex flex-col items-start space-y-3 border-t border-b">
+                <span className="hover:bg-gray-200 w-full text-start">
                   Host your Home
                 </span>
-                <span
-                  style={{
-                    padding: 10,
-                  }}
+                <span className="hover:bg-gray-200 w-full text-start"
                 >
                   Host an experience
                 </span>
-                <span
-                  style={{
-                    padding: 10,
-                  }}
+                <span className="hover:bg-gray-200 w-full text-start"
                 >
                   Refer a Host
                 </span>
-                <span
-                  style={{
-                    padding: 10,
-                  }}
+                <span className="hover:bg-gray-200 w-full text-start"
                 >
                   Account
                 </span>
               </div>
-              <span
-                style={{
-                  padding: 10,
-                }}
+              <span className="hover:bg-gray-200 w-full text-start"
               >
                 Help
               </span>
-              <span
-                style={{
-                  padding: 10,
-                }}
+              <span className="hover:bg-gray-200 w-full text-start"
               >
                 Logout
               </span>
