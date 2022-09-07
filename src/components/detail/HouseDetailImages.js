@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 const HouseDetailImages = ({}) => {
   const [housePictures, setHousePictures] = useState([]);
   let randomArr = [];
+
   // let randomArr = housePictures.map(pictures => {
   //   [...pictures, (Math.random()*100).toFixed(0)]
   // })
@@ -12,6 +13,10 @@ const HouseDetailImages = ({}) => {
     randomArr.push((Math.random() * 100).toFixed());
   }
   useEffect(() => {
+    // let randomArr = [];
+    // for (let i = 0; i < 5; i++) {
+    //   randomArr.push((Math.random() * 100).toFixed());
+    // }
     axios.get("https://picsum.photos/v2/list?page=3&limit=100").then((res) => {
       console.log("pictures:", res.data[0].download_url);
       for (let i = 0; i < res.data.length; i++) {
@@ -20,7 +25,7 @@ const HouseDetailImages = ({}) => {
           res.data[i].download_url,
         ]);
       }
-      console.log(randomArr);
+      // console.log(randomArr);
     });
   }, []);
 
@@ -28,13 +33,17 @@ const HouseDetailImages = ({}) => {
   return (
     <div className="flex space-x-2">
       <div className="house-detail-image-left">
-        <img className="w-full h-full" src={housePictures[randomIndex]} />
+        <img
+          className="w-full h-full"
+          src={housePictures[randomIndex]}
+          alt="houseDetail"
+        />
       </div>
       <div className="house-detail-image-right">
-        <img src={housePictures[randomIndex + 1]} />
-        <img src={housePictures[randomIndex + 2]} />
-        <img src={housePictures[randomIndex + 3]} />
-        <img src={housePictures[randomIndex + 4]} />
+        <img src={housePictures[randomIndex + 1]} alt="houseDetail" />
+        <img src={housePictures[randomIndex + 2]} alt="houseDetail" />
+        <img src={housePictures[randomIndex + 3]} alt="houseDetail" />
+        <img src={housePictures[randomIndex + 4]} alt="houseDetail" />
       </div>
     </div>
   );

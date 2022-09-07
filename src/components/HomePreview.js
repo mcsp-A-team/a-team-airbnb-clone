@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
+import { NavContext } from "../components/navbar/NavContext";
 import heart from '../assets/heart.svg'
 import heartFull from '../assets/heart-full.png'
 

@@ -1,18 +1,21 @@
 import React from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import iconsList from "./ExplorerIcons";
 import FilterButton from "./FilterButton";
+import { NavContext } from '../navbar/NavContext'
 
 export default function NavExplorer() {
   const navigate = useNavigate();
+  const { getFilterHome, urlArr } = useContext(NavContext);
   const handleClick = (title) => {
     navigate(`/${title}`);
+    getFilterHome(title);
   };
   return (
-    // <div className="explorer-bar bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
-    <div className="explorer-bar bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
-      <div className="explorer-holder ">
-        <div className="holder-icons flex flex-row gap-8">
+    <div className="explorer-bar bg-white w-full flex relative justify-between items-center mx-auto px-20 h-20 max-w-full">
+      <div className="explorer-holder  overflow-hidden overflow-auto  max-w-full ">
+        <div className="holder-icons flex flex-row gap-8 ">
           {iconsList.map((icon) => (
             <button
               key={icon.title}
@@ -40,8 +43,10 @@ export default function NavExplorer() {
               </div>
             </button>
           ))}
-          <FilterButton />
         </div>
+      </div>
+      <div>
+        <FilterButton />
       </div>
     </div>
   );

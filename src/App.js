@@ -16,7 +16,10 @@ import Home from "./components/Home";
 import Wishlist from "./components/Wishlist"
 import Footer from "./components/Footer";
 import Navbar from "../src/components/navbar/NavBar";
-
+import SearchResults from "./components/navbar/SearchResult";
+import LakeFront from "./components/filter/LakeFront";
+import Beach from "./components/filter/Beach";
+import Cabins from "./components/filter/Cabins";
 
 function App() {
   const { searchInput } = useContext(NavContext);
@@ -39,7 +42,11 @@ function App() {
           <Route path="/housedetail/:id" element={<HouseDetail />} />
           <Route path="/home" element={<Home  updateWishlist={updateWishlist}/>} />
           <Route path="/wishlist" element={<Wishlist wishlist={wishlist}/>} />
+          <Route path="/Lakefront" element={<LakeFront />} />
+          <Route path="/Beach" element={<Beach />} />
+          <Route path="/Cabins" element={<Cabins />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/search-results" element={<SearchResults />} />
         </Routes>
         <Footer />
       </Router>
