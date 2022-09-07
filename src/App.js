@@ -18,7 +18,6 @@ import Navbar from "../src/components/navbar/NavBar";
 
 // import CountrySearchResultTest from "./components/navbar/CountrySearchResultTest";
 
-
 function App() {
   const { searchInput } = useContext(NavContext);
   // console.log(searchInput);

@@ -9,7 +9,8 @@ export default function NavExplorer() {
     navigate(`/${title}`);
   };
   return (
-    <div className="explorer-bar bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
+    // <div className="explorer-bar bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
+    <div className="explorer-bar bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
       <div className="explorer-holder ">
         <div className="holder-icons flex flex-row gap-8">
           {iconsList.map((icon) => (
@@ -20,7 +21,7 @@ export default function NavExplorer() {
               role="radio"
               aria-checked="false"
               type="button"
-              onClick={()=>handleClick(icon.title)}
+              onClick={() => handleClick(icon.title)}
             >
               <div className="explorer-icon">
                 <span className="grid gap-1">
