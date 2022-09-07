@@ -4,7 +4,7 @@ import axios from "axios";
 import HomePreview from "./HomePreview";
 // import { useNavigate } from "react-router-dom";
 
-export default function Home() {
+export default function Home({ updateWishlist }) {
   const { urlArr } = useContext(NavContext);
 
   const [currentHomes, setCurrentHomes] = useState([]);
@@ -40,6 +40,8 @@ export default function Home() {
               state={currentHomes.state}
               picture={currentHomes.url}
               country={currentHomes.country}
+              id={currentHomes.id}
+              updateWishlist={updateWishlist}
             />
           </div>
         );
