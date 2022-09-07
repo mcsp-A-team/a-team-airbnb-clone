@@ -28,6 +28,7 @@ function App() {
   const updateWishlist = (id) => {
     console.log('updated')
     if (wishlist.includes(id)) {
+      console.log('boolean')
       const newWishlist = wishlist.filter((wish) => wish !== id)
       setWishlist(newWishlist)
     }
@@ -40,8 +41,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/housedetail/:id" element={<HouseDetail />} />
-          <Route path="/home" element={<Home  updateWishlist={updateWishlist}/>} />
-          <Route path="/wishlist" element={<Wishlist wishlist={wishlist}/>} />
+          <Route path="/home" element={<Home  updateWishlist={updateWishlist} wishlist={wishlist}/>} />
+          <Route path="/wishlists" element={<Wishlist wishlist={wishlist}/>} />
           <Route path="/Lakefront" element={<LakeFront />} />
           <Route path="/Beach" element={<Beach />} />
           <Route path="/Cabins" element={<Cabins />} />

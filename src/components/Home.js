@@ -2,9 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { NavContext } from "../components/navbar/NavContext";
 import axios from "axios";
 import HomePreview from "./HomePreview";
+import { v4 } from 'uuid'
 // import { useNavigate } from "react-router-dom";
 
-export default function Home({ updateWishlist }) {
+export default function Home({ updateWishlist, wishlist }) {
   const { urlArr } = useContext(NavContext);
 
   const [currentHomes, setCurrentHomes] = useState([]);
@@ -33,7 +34,7 @@ export default function Home({ updateWishlist }) {
       {currentHomesWithUrl.map((currentHomes, i) => {
         return (
           <div
-            key={currentHomes.id}
+            key={v4()}
             onClick={() => {
               window.open(`/housedetail/${currentHomes.id}`);
             }}
@@ -45,6 +46,7 @@ export default function Home({ updateWishlist }) {
               country={currentHomes.country}
               id={currentHomes.id}
               updateWishlist={updateWishlist}
+              wishlist={wishlist}
             />
           </div>
         );
