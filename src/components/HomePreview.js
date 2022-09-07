@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { NavContext } from "../components/navbar/NavContext";
-import heart from '../assets/heart.svg'
-import heartFull from '../assets/heart-full.png'
+import heart from "../assets/heart.svg";
+import heartFull from "../assets/heart-full.png";
 
-
-
-export default function HomePreview({ city, state, picture, country, id, updateWishlist, wishlist }) {
- 
-  const [miles, setMiles] = useState((Math.random() * 100).toFixed(0))
-  const [price, setPrice] = useState((Math.random() * 1000).toFixed(0))
-  const [rating, setRating] = useState((Math.random() * 5).toFixed(2))
-  const [bookmarked, setBookmarked] = useState(false)
+export default function HomePreview({
+  city,
+  state,
+  picture,
+  country,
+  id,
+  updateWishlist,
+  wishlist,
+}) {
+  const [miles, setMiles] = useState((Math.random() * 100).toFixed(0));
+  const [price, setPrice] = useState((Math.random() * 1000).toFixed(0));
+  const [rating, setRating] = useState((Math.random() * 5).toFixed(2));
+  const [bookmarked, setBookmarked] = useState(false);
 
   function handleBookmark(e) {
-    console.log('clicked')
+    // console.log('clicked')
     e.stopPropagation();
-    updateWishlist(id) 
-    setBookmarked(prevMode => !prevMode)
+    updateWishlist(id);
+    setBookmarked((prevMode) => !prevMode);
   }
 
   useEffect(() => {
-    if (wishlist.includes(id)) setBookmarked(true)
-  },[])
-  
-
+    if (wishlist.includes(id)) setBookmarked(true);
+  }, []);
 
   return (
     <div className="relative mx-1 my-4 flex flex-col items-start w-72">
@@ -42,7 +45,11 @@ export default function HomePreview({ city, state, picture, country, id, updateW
         <p>night</p>
       </span>
       <button onClick={(e) => handleBookmark(e)}>
-        <img className=" absolute top-4 right-4 w-6 h-6" src={bookmarked ? heartFull : heart} alt={''} />
+        <img
+          className=" absolute top-4 right-4 w-6 h-6"
+          src={bookmarked ? heartFull : heart}
+          alt={""}
+        />
       </button>
     </div>
   );

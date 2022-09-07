@@ -11,7 +11,7 @@ export default function SearchBar() {
   // console.log(searchInput);
   console.log(searchInput);
   const [showDropDown, setShowDropDown] = useState(false);
-  console.log(showDropDown);
+  // console.log(showDropDown);
   const navigate = useNavigate();
   const navigateClick = () => {
     getHomesByCountry(searchInput);
@@ -93,19 +93,16 @@ export default function SearchBar() {
 
         <div className="flex-initial">
           {showDropDown ? (
-            <div className="flex flex-col z-10 bg-white absolute top-16 right-16 space-y-4 rounded-md p-3 pr-24 items-start shadow-lg" >
-              <span className="hover:bg-gray-200 w-full text-start"
-              >
+            <div className="flex flex-col z-10 bg-white absolute top-16 right-16 space-y-4 rounded-md p-3 pr-24 items-start shadow-lg">
+              <span className="hover:bg-gray-200 w-full text-start">
                 Messages
               </span>
-              <span className="hover:bg-gray-200 w-full text-start"
-              >
-                Trips
-              </span>
-              <span className="hover:bg-gray-200 w-full text-start"
+              <span className="hover:bg-gray-200 w-full text-start">Trips</span>
+              <span
+                className="hover:bg-gray-200 w-full text-start"
                 onClick={() => {
-                  navigate(`/wishlists`)
-                  setShowDropDown(prevShowDropDown => !prevShowDropDown)
+                  navigate(`/wishlists`);
+                  setShowDropDown((prevShowDropDown) => !prevShowDropDown);
                 }}
               >
                 Wishlists
@@ -114,25 +111,18 @@ export default function SearchBar() {
                 <span className="hover:bg-gray-200 w-full text-start">
                   Host your Home
                 </span>
-                <span className="hover:bg-gray-200 w-full text-start"
-                >
+                <span className="hover:bg-gray-200 w-full text-start">
                   Host an experience
                 </span>
-                <span className="hover:bg-gray-200 w-full text-start"
-                >
+                <span className="hover:bg-gray-200 w-full text-start">
                   Refer a Host
                 </span>
-                <span className="hover:bg-gray-200 w-full text-start"
-                >
+                <span className="hover:bg-gray-200 w-full text-start">
                   Account
                 </span>
               </div>
-              <span className="hover:bg-gray-200 w-full text-start"
-              >
-                Help
-              </span>
-              <span className="hover:bg-gray-200 w-full text-start"
-              >
+              <span className="hover:bg-gray-200 w-full text-start">Help</span>
+              <span className="hover:bg-gray-200 w-full text-start">
                 Logout
               </span>
             </div>
