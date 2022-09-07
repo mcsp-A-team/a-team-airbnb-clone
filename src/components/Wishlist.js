@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 import axios from "axios";
-import heart from "../assets/heart.svg";
 import heartFull from "../assets/heart-full.png";
 
 export default function Wishlist({ wishlist }) {
@@ -23,8 +22,8 @@ export default function Wishlist({ wishlist }) {
   };
 
   return (
-    <div>
-      <div>Wishlist</div>
+    <div className="px-20">
+      <h1 className="font-bold flex text-4xl ">Wishlist</h1>
       {p.map((i) => {
         const randomPic = faker.image.business(600, 600, true);
         const randomRating = (Math.random() * 5).toFixed(2);
