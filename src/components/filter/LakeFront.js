@@ -1,22 +1,19 @@
 import React from "react";
-import { useContext } from "react";
+import {  useContext } from "react";
+import { NavContext } from "../navbar/NavContext";
+
 import HomePreview from "../HomePreview";
 
-//remember to change the path to the NavContext file
-import { NavContext } from "./NavContext";
+export default function LakeFront() {
+  const { urlArr, filterList } = useContext(NavContext);
+  
 
-export default function SearchResults() {
-  const { searchResults, urlArr } = useContext(NavContext);
-
-  // console.log(searchResults);
-  // console.log(urlArr);
-  //random integer from 0 - 99 to genenrate random picture
- 
-  const resultWithUrl = searchResults.map((item, index) => {
-    return { ...item, url: urlArr[Math.floor(Math.random() * urlArr.length)] };
+  const resultWithUrl = filterList.map((item, index) => {
+    return {
+      ...item,
+      url: urlArr[Math.floor(Math.random() * urlArr.length)],
+    };
   });
-
-  // console.log(resultWithUrl);
 
   return (
     <div className="flex flex-wrap justify-evenly items-center mx-12">

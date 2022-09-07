@@ -25,14 +25,17 @@ export default function Home() {
     return { ...currentHomes[index], url: item };
   });
 
+  // console.log(currentHomesWithUrl);
+
+  //Hung: pass id props to HomePreview
   return (
     <div className="flex flex-wrap justify-evenly items-center mx-12">
       {currentHomesWithUrl.map((currentHomes, i) => {
         return (
           <div
-            key={i++}
+            key={currentHomes.id}
             onClick={() => {
-              window.open(`/housedetail/${i}`);
+              window.open(`/housedetail/${currentHomes.id}`);
             }}
           >
             <HomePreview
