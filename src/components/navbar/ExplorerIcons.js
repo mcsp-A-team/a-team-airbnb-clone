@@ -56,7 +56,46 @@ const iconsList = [
     src: "https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg",
     title: "Amazing views",
   },
-
+  {
+    src: "	https://a0.muscache.com/pictures/50861fca-582c-4bcc-89d3-857fb7ca6528.jpg",
+    title: "Design",
+  },
+  {
+    src: "https://a0.muscache.com/pictures/957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg",
+    title: "Surfing",
+  },
+  {
+    src: "https://a0.muscache.com/pictures/1d477273-96d6-4819-9bda-9085f809dad3.jpg",
+    title: "A-frames",
+  },
+  {
+    src: "https://a0.muscache.com/pictures/4d4a4eba-c7e4-43eb-9ce2-95e1d200d10e.jpg",
+    title: "Tree houses",
+  },
+  {
+    src: "https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg",
+    title: "Amazing views",
+  },
+  {
+    src: "	https://a0.muscache.com/pictures/50861fca-582c-4bcc-89d3-857fb7ca6528.jpg",
+    title: "Design",
+  },
+  {
+    src: "https://a0.muscache.com/pictures/1d477273-96d6-4819-9bda-9085f809dad3.jpg",
+    title: "A-frames",
+  },
+  {
+    src: "https://a0.muscache.com/pictures/4d4a4eba-c7e4-43eb-9ce2-95e1d200d10e.jpg",
+    title: "Tree houses",
+  },
+  {
+    src: "https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg",
+    title: "Amazing views",
+  },
+  {
+    src: "	https://a0.muscache.com/pictures/50861fca-582c-4bcc-89d3-857fb7ca6528.jpg",
+    title: "Design",
+  },
 ];
 
 export default iconsList;

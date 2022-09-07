@@ -33,9 +33,9 @@ export default function Home() {
       {currentHomesWithUrl.map((currentHomes, i) => {
         return (
           <div
-            key={i++}
+            key={currentHomes.id}
             onClick={() => {
-              window.open(`/housedetail/${i}`);
+              window.open(`/housedetail/${currentHomes.id}`);
             }}
           >
             <HomePreview
