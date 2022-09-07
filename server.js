@@ -12,23 +12,6 @@ const pool = new Pool({
 
 const app = express();
 
-const getBaseUrl = () => {
-  let url;
-  switch(process.env.NODE_ENV) {
-    case 'production':
-      url = 'https://a-team-airbnb-clone.onrender.com';
-      break;
-    case 'development':
-    default:
-      url = 'https://localhost:3010';
-  }
-
-  return url;
-}
-
-export default axios.create({
-  baseURL: getBaseUrl(),
-});
 
 //Connected Database
 pool.connect((err) => {
