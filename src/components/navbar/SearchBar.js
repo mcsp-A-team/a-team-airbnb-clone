@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { NavContext } from "../navbar/NavContext";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,9 @@ export default function SearchBar() {
   const { searchInput, onChangeInput, getHomesByCountry } =
     useContext(NavContext);
   // console.log(searchInput);
+  console.log(searchInput);
+  const [showDropDown, setShowDropDown] = useState(false);
+  console.log(showDropDown);
   const navigate = useNavigate();
   const navigateClick = () => {
     getHomesByCountry(searchInput);
@@ -89,6 +92,104 @@ export default function SearchBar() {
         {/************************************************************** */}
 
         <div className="flex-initial">
+          {showDropDown ? (
+            <div
+              style={{
+                backgroundColor: "red",
+                height: "auto",
+                width: 260,
+                position: "absolute",
+                display: "flex",
+                position: "absolute",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                top: 80,
+                backgroundColor: "white",
+                borderRadius: "5px",
+                boxShadow: " rgb(0 0 0 / 12%) 0px 6px 16px",
+              }}
+            >
+              <span
+                style={{
+                  padding: 10,
+                }}
+              >
+                Messages
+              </span>
+              <span
+                style={{
+                  padding: 10,
+                }}
+              >
+                Trips
+              </span>
+              <span
+                style={{
+                  padding: 10,
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  navigate(`/wishlists`);
+                }}
+              >
+                Wishlists
+              </span>
+              <div
+                style={{
+                  borderBottom: "0.5px solid rgb(205, 202, 202)",
+                  borderTop: "0.5px solid rgb(205, 202, 202)",
+                  display: "flex",
+                  width: "auto",
+                  width: 260,
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                }}
+              >
+                <span
+                  style={{
+                    padding: 10,
+                  }}
+                >
+                  Host your Home
+                </span>
+                <span
+                  style={{
+                    padding: 10,
+                  }}
+                >
+                  Host an experience
+                </span>
+                <span
+                  style={{
+                    padding: 10,
+                  }}
+                >
+                  Refer a Host
+                </span>
+                <span
+                  style={{
+                    padding: 10,
+                  }}
+                >
+                  Account
+                </span>
+              </div>
+              <span
+                style={{
+                  padding: 10,
+                }}
+              >
+                Help
+              </span>
+              <span
+                style={{
+                  padding: 10,
+                }}
+              >
+                Logout
+              </span>
+            </div>
+          ) : null}
           <div className="flex justify-end items-center relative">
             <div className="flex mr-4 items-center">
               <a className="inline-block py-2 px-3 rounded-full" href="/">
@@ -123,11 +224,14 @@ export default function SearchBar() {
                 </button>
               </div>
             </div>
-            <div className="block">
+            <div>
               <div className="inline relative">
                 <button
                   type="button"
                   className="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"
+                  onClick={() => {
+                    setShowDropDown((showDropDown) => !showDropDown);
+                  }}
                 >
                   <div className="pl-1">
                     <svg

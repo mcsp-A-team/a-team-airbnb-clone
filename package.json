@@ -20,7 +20,6 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-
   "proxy": "http://localhost:3010",
   "scripts": {
     "start": "node server.js",
@@ -29,7 +28,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon server.js"
-
   },
   "eslintConfig": {
     "extends": [

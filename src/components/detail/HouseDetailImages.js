@@ -3,10 +3,15 @@ import React, { useState, useEffect } from "react";
 
 const HouseDetailImages = ({}) => {
   const [housePictures, setHousePictures] = useState([]);
+  let randomArr = [];
+
   // let randomArr = housePictures.map(pictures => {
   //   [...pictures, (Math.random()*100).toFixed(0)]
   // })
 
+  for (let i = 0; i < 5; i++) {
+    randomArr.push((Math.random() * 100).toFixed());
+  }
   useEffect(() => {
     // let randomArr = [];
     // for (let i = 0; i < 5; i++) {
@@ -23,6 +28,7 @@ const HouseDetailImages = ({}) => {
       // console.log(randomArr);
     });
   }, []);
+
   let randomIndex = Math.floor(Math.random() * housePictures.length);
   return (
     <div className="flex space-x-2">

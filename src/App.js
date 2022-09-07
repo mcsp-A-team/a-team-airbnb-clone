@@ -20,7 +20,6 @@ import LakeFront from "./components/filter/LakeFront";
 import Beach from "./components/filter/Beach";
 import Cabins from "./components/filter/Cabins";
 
-
 function App() {
   // const { searchInput } = useContext(NavContext);
   const { currentHomesData } = useContext(NavContext);
