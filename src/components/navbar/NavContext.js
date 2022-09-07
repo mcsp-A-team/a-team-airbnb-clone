@@ -1,16 +1,17 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import HouseDetail from "../detail/HouseDetail";
 
 export const NavContext = createContext();
 
 export default function NavContextProvider({ children }) {
   //**Inout search bar state */
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
   const onChangeInput = (event) => {
     event.preventDefault();
-    setSearchInput(event.target.value)
+    setSearchInput(event.target.value);
   };
-  
+
   //**Get lorem picture */
   const [loremPic, setLoremPic] = useState([]);
   useEffect(() => {
@@ -22,32 +23,51 @@ export default function NavContextProvider({ children }) {
   const urlArr = loremPic.map((item) => item.download_url);
   // console.log(urlArr);
 
-    
   //**Get homes by country (search results) */
   const [searchResults, setSearchResults] = useState([]);
   const getHomesByCountry = async (input) => {
     try {
-      const response = await axios.get(
-        `/homes/country/${input}`
-      )
+      const response = await axios.get(`/homes/country/${input}`);
       setSearchResults(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-   
-    const navContextData = {
-        searchInput,
-      onChangeInput,
-      getHomesByCountry,
-      searchResults,
-      urlArr
+  //**CurrentHome state */
+  const [currentHomesData, setCurrentHomesData] = useState();
+  const handleClick = (id) => {
+    setCurrentHomesData(id);
+  };
+  localStorage.setItem("currentHomesDataID", JSON.stringify(currentHomesData));
+
+  //**Get homes by filter (Lakefront, Cabins, Beach) */
+  const [filterList, setFilterList] = useState([]);
+  const getFilterHome = async (input) => {
+    try {
+      const response = await axios.get(`/homes/type/${input}`);
+      setFilterList(response.data);
+    } catch (error) {
+      console.log(error);
     }
-    
-    return (
-      <NavContext.Provider value={navContextData}>
-        {children}
-      </NavContext.Provider>
-    );
-    }
+  };
+
+  // console.log(currentHomesData);
+
+  const navContextData = {
+    searchInput,
+    onChangeInput,
+    getHomesByCountry,
+    searchResults,
+    urlArr,
+    currentHomesData,
+    setCurrentHomesData,
+    handleClick,
+    filterList,
+    getFilterHome
+  };
+
+  return (
+    <NavContext.Provider value={navContextData}>{children}</NavContext.Provider>
+  );
+}

@@ -15,13 +15,14 @@ import Home from "./components/Home";
 
 import Footer from "./components/Footer";
 import Navbar from "../src/components/navbar/NavBar";
-
-// import CountrySearchResultTest from "./components/navbar/CountrySearchResultTest";
-
+import SearchResults from "./components/navbar/SearchResult";
+import LakeFront from "./components/filter/LakeFront";
+import Beach from "./components/filter/Beach";
+import Cabins from "./components/filter/Cabins";
 
 function App() {
-  const { searchInput } = useContext(NavContext);
-  // console.log(searchInput);
+  // const { searchInput } = useContext(NavContext);
+  const { currentHomesData } = useContext(NavContext);
   return (
     <div className="App">
       <Router>
@@ -29,7 +30,11 @@ function App() {
         <Routes>
           <Route path="/housedetail/:id" element={<HouseDetail />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/Lakefront" element={<LakeFront />} />
+          <Route path="/Beach" element={<Beach />} />
+          <Route path="/Cabins" element={<Cabins />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/search-results" element={<SearchResults />} />
         </Routes>
         <Footer />
       </Router>

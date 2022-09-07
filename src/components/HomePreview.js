@@ -1,4 +1,6 @@
 import React from "react";
+import { useContext } from "react";
+import { NavContext } from "../components/navbar/NavContext";
 
 export default function HomePreview({ city, state, picture, country }) {
   let miles = (Math.random() * 100).toFixed(0);
