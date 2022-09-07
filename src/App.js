@@ -29,10 +29,11 @@ function App() {
     console.log('updated')
     if (wishlist.includes(id)) {
       console.log('boolean')
-      const newWishlist = wishlist.filter((wish) => wish !== id)
-      setWishlist(newWishlist)
+      setWishlist(wishlist.filter((wish) => wish !== id))
+    } else {
+      setWishlist(prevWishlist => [...prevWishlist, id])
     }
-    setWishlist(prevWishlist => [...prevWishlist, id])
+    
   } 
 
   return (
