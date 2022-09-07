@@ -1,37 +1,43 @@
-import axios from 'axios'
-import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 
-const HouseDetailImages = ({ }) => {
+const HouseDetailImages = ({}) => {
+  const [housePictures, setHousePictures] = useState([]);
+  let randomArr = [];
+  // let randomArr = housePictures.map(pictures => {
+  //   [...pictures, (Math.random()*100).toFixed(0)]
+  // })
 
-  const [housePictures, setHousePictures] = useState([])
-  
-
+  for (let i = 0; i < 5; i++) {
+    randomArr.push((Math.random() * 100).toFixed());
+  }
   useEffect(() => {
     axios.get("https://picsum.photos/v2/list?page=3&limit=100").then((res) => {
-      console.log('pictures:', res.data[0].download_url)
+      console.log("pictures:", res.data[0].download_url);
       for (let i = 0; i < res.data.length; i++) {
-        setHousePictures(prevHousePictures => [...prevHousePictures, res.data[i].download_url])
+        setHousePictures((prevHousePictures) => [
+          ...prevHousePictures,
+          res.data[i].download_url,
+        ]);
       }
+      console.log(randomArr);
     });
   }, []);
-
-  
 
   let randomIndex = Math.floor(Math.random() * housePictures.length);
   return (
     <div className="flex space-x-2">
       <div className="house-detail-image-left">
-        <img className='w-full h-full' src={housePictures[randomIndex]} />
+        <img className="w-full h-full" src={housePictures[randomIndex]} />
       </div>
       <div className="house-detail-image-right">
-        <img src={housePictures[randomIndex+1]}  />
-        <img src={housePictures[randomIndex+2]}  />
-        <img src={housePictures[randomIndex+3]}  />
-        <img src={housePictures[randomIndex+4]}  />
+        <img src={housePictures[randomIndex + 1]} />
+        <img src={housePictures[randomIndex + 2]} />
+        <img src={housePictures[randomIndex + 3]} />
+        <img src={housePictures[randomIndex + 4]} />
       </div>
     </div>
   );
 };
 
 export default HouseDetailImages;
-

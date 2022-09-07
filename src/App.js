@@ -18,7 +18,6 @@ import Footer from "./components/Footer";
 import Navbar from "../src/components/navbar/NavBar";
 
 
-
 function App() {
   const { searchInput } = useContext(NavContext);
   const [wishlist, setWishlist] = useState([]);
