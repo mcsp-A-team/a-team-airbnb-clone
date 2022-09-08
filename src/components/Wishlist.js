@@ -10,6 +10,7 @@ export default function Wishlist({ wishlist }) {
     for (let i = 0; i < wishlist.length; i++) {
         axios.get(`${API_URL}/homes/${wishlist[i]}`).then((res) => {
             console.log(res.data)
+            setp(prevp => [...prevp, res.data[0]])
         })
     }
   }, []);
