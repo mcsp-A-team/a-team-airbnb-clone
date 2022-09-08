@@ -5,13 +5,13 @@ import HomePreview from "../HomePreview";
 //remember to change the path to the NavContext file
 import { NavContext } from "./NavContext";
 
-export default function SearchResults() {
+export default function SearchResults({ updateWishlist, wishlist }) {
   const { searchResults, urlArr } = useContext(NavContext);
 
   // console.log(searchResults);
   // console.log(urlArr);
   //random integer from 0 - 99 to genenrate random picture
- 
+
   const resultWithUrl = searchResults.map((item, index) => {
     return { ...item, url: urlArr[Math.floor(Math.random() * urlArr.length)] };
   });
@@ -33,6 +33,8 @@ export default function SearchResults() {
               state={currentHomes.state}
               picture={currentHomes.url}
               country={currentHomes.country}
+              updateWishlist={updateWishlist}
+              wishlist={wishlist}
             />
           </div>
         );
