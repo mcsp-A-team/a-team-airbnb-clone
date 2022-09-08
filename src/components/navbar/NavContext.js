@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const NavContext = createContext();
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
+const API_URL = process.env.REACT_APP_API_URL
 
 export default function NavContextProvider({ children }) {
   //**Inout search bar state */
@@ -28,7 +28,7 @@ export default function NavContextProvider({ children }) {
   const [searchResults, setSearchResults] = useState([]);
   const getHomesByCountry = async (input) => {
     try {
-      const response = await axios.get(`${API_ENDPOINT}/homes/country/${input}`);
+      const response = await axios.get(`${API_URL}/homes/country/${input}`);
       setSearchResults(response.data);
     } catch (error) {
       console.log(error);
@@ -46,7 +46,7 @@ export default function NavContextProvider({ children }) {
   const [filterList, setFilterList] = useState([]);
   const getFilterHome = async (input) => {
     try {
-      const response = await axios.get(`${API_ENDPOINT}/homes/type/${input}`);
+      const response = await axios.get(`${API_URL}/homes/type/${input}`);
       setFilterList(response.data);
     } catch (error) {
       console.log(error);

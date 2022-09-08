@@ -11,7 +11,7 @@ import axios from "axios";
 import { Review } from "./Reviews";
 import { Price } from "./Price";
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
+const API_URL = process.env.REACT_APP_API_URL
 
 function HouseDetail() {
   let { id } = useParams();
@@ -20,14 +20,14 @@ function HouseDetail() {
 
 
   useEffect(() => {
-    axios.get(`${API_ENDPOINT}/homes/${id}`).then((response) => {
+    axios.get(`${API_URL}/homes/${id}`).then((response) => {
       console.log("House ID:", response.data[0]);
       setHouseObject(response.data);
     });
   }, [id]);
 
   useEffect(() => {
-    axios.get(`${API_ENDPOINT}/homes`).then((response) => {
+    axios.get(`${API_URL}/homes`).then((response) => {
       console.log("House data:", response.data);
       setHouse(response.data);
       if (house) {
