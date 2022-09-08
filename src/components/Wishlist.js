@@ -4,7 +4,7 @@ import heartFull from "../assets/heart-full.png";
 import axios from 'axios'
 const API_URL = process.env.REACT_APP_API_URL
 
-export default function Wishlist({ wishlist }) {
+export default function Wishlist({ wishlist, updateWishlist }) {
   const [p, setp] = useState([]);
   useEffect(() => {
     for (let i = 0; i < wishlist.length; i++) {
@@ -21,6 +21,7 @@ export default function Wishlist({ wishlist }) {
         return list.id !== id;
       })
     );
+    updateWishlist(id)
   };
 
   return (
