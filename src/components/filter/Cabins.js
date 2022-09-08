@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { NavContext } from "../navbar/NavContext";
 import HomePreview from "../HomePreview";
 
-export default function Cabins() {
+export default function Cabins({updateWishlist, wishlist }) {
   const { urlArr, filterList } = useContext(NavContext);
   // console.log(filterList)
 
@@ -29,6 +29,8 @@ export default function Cabins() {
               state={currentHomes.state}
               picture={currentHomes.url}
               country={currentHomes.country}
+              updateWishlist={updateWishlist}
+              wishlist={wishlist}
             />
           </div>
         );

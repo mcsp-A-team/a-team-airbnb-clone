@@ -4,9 +4,8 @@ import { NavContext } from "../navbar/NavContext";
 
 import HomePreview from "../HomePreview";
 
-export default function LakeFront() {
+export default function LakeFront({ updateWishlist, wishlist }) {
   const { urlArr, filterList } = useContext(NavContext);
-  
 
   const resultWithUrl = filterList.map((item, index) => {
     return {
@@ -30,6 +29,9 @@ export default function LakeFront() {
               state={currentHomes.state}
               picture={currentHomes.url}
               country={currentHomes.country}
+              id={currentHomes.id}
+              updateWishlist={updateWishlist}
+              wishlist={wishlist}
             />
           </div>
         );
