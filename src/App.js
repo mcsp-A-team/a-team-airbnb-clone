@@ -48,9 +48,12 @@ function App() {
             }
           />
           <Route path="/wishlists" element={<Wishlist wishlist={wishlist} />} />
-          <Route path="/Lakefront" element={<LakeFront />} />
-          <Route path="/Beach" element={<Beach />} />
-          <Route path="/Cabins" element={<Cabins />} />
+          <Route
+            path="/Lakefront"
+            element={<LakeFront updateWishlist={updateWishlist} wishlist={wishlist} />}
+          />
+          <Route path="/Beach" element={<Beach updateWishlist={updateWishlist} wishlist={wishlist} />} />
+          <Route path="/Cabins" element={<Cabins updateWishlist={updateWishlist} wishlist={wishlist} />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/search-results" element={<SearchResults />} />
         </Routes>

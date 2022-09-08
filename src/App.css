@@ -62,3 +62,12 @@ border:none;
 outline:none;
 }
 
+.big-left-pic{
+  object-fit: cover;
+  vertical-align: bottom;
+}
+.house-detail-image-left{
+  display: inline-block;
+  vertical-align: bottom;
+  
+}
