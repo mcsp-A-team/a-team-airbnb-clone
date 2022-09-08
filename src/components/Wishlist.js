@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
-import axios from "axios";
 import heartFull from "../assets/heart-full.png";
+import axios from 'axios'
+const API_URL = process.env.REACT_APP_API_URL
 
 export default function Wishlist({ wishlist }) {
   const [p, setp] = useState([]);
   useEffect(() => {
     for (let i = 0; i < wishlist.length; i++) {
-      axios.get(`/homes/${wishlist[i]}`).then((res) => {
-        setp((p) => [...p, res.data[0]]);
-      });
+        axios.get(`${API_URL}/homes/${wishlist[i]}`).then((res) => {
+            console.log(res.data)
+        })
     }
   }, []);
 
