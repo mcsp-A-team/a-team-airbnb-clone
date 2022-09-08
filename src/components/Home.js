@@ -2,13 +2,13 @@ import React, { useEffect, useState, useContext } from "react";
 import { NavContext } from "../components/navbar/NavContext";
 import axios from "axios";
 import HomePreview from "./HomePreview";
+// import ScrollButton from "./detail/scrolltop/ScrollButton";
 // import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const { urlArr } = useContext(NavContext);
 
   const [currentHomes, setCurrentHomes] = useState([]);
-
 
   useEffect(() => {
     axios.get("/homes").then((res) => {
@@ -44,6 +44,8 @@ export default function Home() {
               picture={currentHomes.url}
               country={currentHomes.country}
             />
+            {/* ADD SCROLLBUTTON IF YOU NEED */}
+            {/* <ScrollButton /> */}
           </div>
         );
       })}

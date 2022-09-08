@@ -31,10 +31,9 @@ const HouseDetailImages = ({}) => {
 
   let randomIndex = Math.floor(Math.random() * housePictures.length);
   return (
-    <div className="flex space-x-2">
+    <div className="house-detail-image">
       <div className="house-detail-image-left">
         <img
-          className="w-full h-full"
           src={housePictures[randomIndex]}
           alt="houseDetail"
         />

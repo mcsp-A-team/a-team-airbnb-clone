@@ -4,7 +4,7 @@ import HouseDetailSub from "./HouseDetailSub";
 import HouseDetailImages from "./HouseDetailImages";
 // import SearchBar from "../navbar/SearchBar";
 import HouseDetailDescription from "./HouseDetailDescription";
-// import HouseDetailMap from "./HouseDetailMap";
+import HouseDetailMap from "./HouseDetailMap";
 import "./detail.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -50,7 +50,7 @@ function HouseDetail() {
         <Price />
       </div>
       <Review />
-      {/* <HouseDetailMap /> */}
+      <HouseDetailMap />
     </div>
   );
 }
