@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { NavContext } from "../components/navbar/NavContext";
 import axios from "axios";
 import HomePreview from "./HomePreview";
+// import ScrollButton from "./detail/scrolltop/ScrollButton";
 import { v4 } from 'uuid'
 // import { useNavigate } from "react-router-dom";
 
@@ -11,7 +12,6 @@ export default function Home({ updateWishlist, wishlist }) {
   const { urlArr } = useContext(NavContext);
 
   const [currentHomes, setCurrentHomes] = useState([]);
-
 
   useEffect(() => {
     axios.get(`${API_URL}/homes`).then((res) => {
@@ -50,6 +50,8 @@ export default function Home({ updateWishlist, wishlist }) {
               updateWishlist={updateWishlist}
               wishlist={wishlist}
             />
+            {/* ADD SCROLLBUTTON IF YOU NEED */}
+            {/* <ScrollButton /> */}
           </div>
         );
       })}

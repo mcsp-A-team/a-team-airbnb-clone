@@ -1,8 +1,8 @@
 const express = require("express");
+const path = require('path')
 const cors = require("cors");
 const { Pool } = require("pg");
 const dotenv = require("dotenv");
-const path = require("path");
 dotenv.config();
 const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 const pool = new Pool({
@@ -23,6 +23,9 @@ pool.connect((err) => {
 });
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'build')));
+
+
 // GET HOMES
 app.get("/homes", (req, res) => {
   pool.query("SELECT * FROM homes").then((result) => {
