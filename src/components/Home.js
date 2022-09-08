@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { NavContext } from "../components/navbar/NavContext";
 import axios from "axios";
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 import HomePreview from "./HomePreview";
 import { v4 } from 'uuid'
 // import { useNavigate } from "react-router-dom";
@@ -12,7 +13,7 @@ export default function Home({ updateWishlist, wishlist }) {
 
 
   useEffect(() => {
-    axios.get("/homes").then((res) => {
+    axios.get(`${API_ENDPOINT}/homes`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
         setCurrentHomes((prevCurrentHomes) => [
           ...prevCurrentHomes,

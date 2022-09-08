@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 import HouseDetail from "../detail/HouseDetail";
 
 export const NavContext = createContext();
@@ -27,7 +28,7 @@ export default function NavContextProvider({ children }) {
   const [searchResults, setSearchResults] = useState([]);
   const getHomesByCountry = async (input) => {
     try {
-      const response = await axios.get(`/homes/country/${input}`);
+      const response = await axios.get(`${API_ENDPOINT}/homes/country/${input}`);
       setSearchResults(response.data);
     } catch (error) {
       console.log(error);
@@ -45,7 +46,7 @@ export default function NavContextProvider({ children }) {
   const [filterList, setFilterList] = useState([]);
   const getFilterHome = async (input) => {
     try {
-      const response = await axios.get(`/homes/type/${input}`);
+      const response = await axios.get(`${API_ENDPOINT}/homes/type/${input}`);
       setFilterList(response.data);
     } catch (error) {
       console.log(error);

@@ -8,6 +8,7 @@ import HouseDetailDescription from "./HouseDetailDescription";
 import "./detail.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 
 import { Review } from "./Reviews";
 // import { CalendarDisplay } from "./Calendar";
@@ -20,14 +21,14 @@ function HouseDetail() {
 
 
   useEffect(() => {
-    axios.get(`/homes/${id}`).then((response) => {
+    axios.get(`${API_ENDPOINT}/homes/${id}`).then((response) => {
       console.log("House ID:", response.data[0]);
       setHouseObject(response.data);
     });
   }, [id]);
 
   useEffect(() => {
-    axios.get(`/homes`).then((response) => {
+    axios.get(`${API_ENDPOINT}/homes`).then((response) => {
       console.log("House data:", response.data);
       setHouse(response.data);
       if (house) {
