@@ -7,12 +7,12 @@ import NavContextProvider from "./components/navbar/NavContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
     {/**NavContextProvider pass props to children components*/}
     <NavContextProvider>
       <App />
     </NavContextProvider>
-  </React.StrictMode>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

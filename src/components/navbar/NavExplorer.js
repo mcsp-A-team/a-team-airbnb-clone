@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import iconsList from "./ExplorerIcons";
 import FilterButton from "./FilterButton";
 import { NavContext } from '../navbar/NavContext'
+import { v4 } from 'uuid'
 
 export default function NavExplorer() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function NavExplorer() {
         <div className="holder-icons flex flex-row gap-8 ">
           {iconsList.map((icon) => (
             <button
-              key={icon.title}
+              key={v4()}
               aria-hidden="false"
               className="explorer-icon-btn"
               role="radio"
