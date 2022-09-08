@@ -8,11 +8,10 @@ import HouseDetailDescription from "./HouseDetailDescription";
 import "./detail.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
-
 import { Review } from "./Reviews";
-// import { CalendarDisplay } from "./Calendar";
 import { Price } from "./Price";
+
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 
 function HouseDetail() {
   let { id } = useParams();

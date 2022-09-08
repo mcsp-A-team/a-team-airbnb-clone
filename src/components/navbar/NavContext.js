@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
-import HouseDetail from "../detail/HouseDetail";
 
 export const NavContext = createContext();
+
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 
 export default function NavContextProvider({ children }) {
   //**Inout search bar state */

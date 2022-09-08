@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import { NavContext } from "../components/navbar/NavContext";
 import axios from "axios";
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 import HomePreview from "./HomePreview";
 import { v4 } from 'uuid'
 // import { useNavigate } from "react-router-dom";
+
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 
 export default function Home({ updateWishlist, wishlist }) {
   const { urlArr } = useContext(NavContext);
