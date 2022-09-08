@@ -104,7 +104,7 @@ export default function SearchBar() {
                   navigate(`/wishlists`);
                   setShowDropDown((prevShowDropDown) => !prevShowDropDown);
                 }}
-              >Messages
+              >Wishlist
               </span>
               <div className="flex flex-col items-start space-y-3 border-t border-b">
                 <span className="hover:bg-gray-200 w-full text-start">
