@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -12,7 +13,7 @@ import { NavContext } from "./components/navbar/NavContext";
 
 import HouseDetail from "./components/detail/HouseDetail";
 import Home from "./components/Home";
-
+import Wishlist from "./components/Wishlist";
 import Footer from "./components/Footer";
 import Navbar from "../src/components/navbar/NavBar";
 import SearchResults from "./components/navbar/SearchResult";
@@ -20,17 +21,33 @@ import LakeFront from "./components/filter/LakeFront";
 import Beach from "./components/filter/Beach";
 import Cabins from "./components/filter/Cabins";
 
-
 function App() {
-  // const { searchInput } = useContext(NavContext);
-  const { currentHomesData } = useContext(NavContext);
+  const { searchInput } = useContext(NavContext);
+  const [wishlist, setWishlist] = useState([]);
+
+  const updateWishlist = (id) => {
+    // console.log('updated')
+    if (wishlist.includes(id)) {
+      // console.log('boolean')
+      setWishlist(wishlist.filter((wish) => wish !== id));
+    } else {
+      setWishlist((prevWishlist) => [...prevWishlist, id]);
+    }
+  };
+
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
           <Route path="/housedetail/:id" element={<HouseDetail />} />
-          <Route path="/home" element={<Home />} />
+          <Route
+            path="/home"
+            element={
+              <Home updateWishlist={updateWishlist} wishlist={wishlist} />
+            }
+          />
+          <Route path="/wishlists" element={<Wishlist wishlist={wishlist} />} />
           <Route path="/Lakefront" element={<LakeFront />} />
           <Route path="/Beach" element={<Beach />} />
           <Route path="/Cabins" element={<Cabins />} />

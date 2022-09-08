@@ -2,16 +2,19 @@ import React, { useEffect, useState, useContext } from "react";
 import { NavContext } from "../components/navbar/NavContext";
 import axios from "axios";
 import HomePreview from "./HomePreview";
+// import ScrollButton from "./detail/scrolltop/ScrollButton";
+import { v4 } from 'uuid'
 // import { useNavigate } from "react-router-dom";
 
-export default function Home() {
+const API_URL = process.env.REACT_APP_API_URL
+
+export default function Home({ updateWishlist, wishlist }) {
   const { urlArr } = useContext(NavContext);
 
   const [currentHomes, setCurrentHomes] = useState([]);
 
-
   useEffect(() => {
-    axios.get("/homes").then((res) => {
+    axios.get(`${API_URL}/homes`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
         setCurrentHomes((prevCurrentHomes) => [
           ...prevCurrentHomes,
@@ -33,7 +36,7 @@ export default function Home() {
       {currentHomesWithUrl.map((currentHomes, i) => {
         return (
           <div
-            key={currentHomes.id}
+            key={v4()}
             onClick={() => {
               window.open(`/housedetail/${currentHomes.id}`);
             }}
@@ -43,7 +46,12 @@ export default function Home() {
               state={currentHomes.state}
               picture={currentHomes.url}
               country={currentHomes.country}
+              id={currentHomes.id}
+              updateWishlist={updateWishlist}
+              wishlist={wishlist}
             />
+            {/* ADD SCROLLBUTTON IF YOU NEED */}
+            {/* <ScrollButton /> */}
           </div>
         );
       })}

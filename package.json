@@ -18,9 +18,10 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "uuid": "^9.0.0",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
-
   "proxy": "http://localhost:3010",
   "scripts": {
     "start": "node server.js",
@@ -29,7 +30,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon server.js"
-
   },
   "eslintConfig": {
     "extends": [

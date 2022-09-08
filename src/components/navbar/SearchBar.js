@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { NavContext } from "../navbar/NavContext";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,9 @@ export default function SearchBar() {
   const { searchInput, onChangeInput, getHomesByCountry } =
     useContext(NavContext);
   // console.log(searchInput);
+  console.log(searchInput);
+  const [showDropDown, setShowDropDown] = useState(false);
+  // console.log(showDropDown);
   const navigate = useNavigate();
   const navigateClick = () => {
     getHomesByCountry(searchInput);
@@ -89,6 +92,41 @@ export default function SearchBar() {
         {/************************************************************** */}
 
         <div className="flex-initial">
+          {showDropDown ? (
+            <div className="flex flex-col z-10 bg-white absolute top-16 right-16 space-y-4 rounded-md p-3 pr-24 items-start shadow-lg">
+              <span className="hover:bg-gray-200 w-full text-start">
+                Messages
+              </span>
+              <span className="hover:bg-gray-200 w-full text-start">Trips</span>
+              <span
+                className="hover:bg-gray-200 w-full text-start"
+                onClick={() => {
+                  navigate(`/wishlists`);
+                  setShowDropDown((prevShowDropDown) => !prevShowDropDown);
+                }}
+              >
+                Wishlists
+              </span>
+              <div className="flex flex-col items-start space-y-3 border-t border-b">
+                <span className="hover:bg-gray-200 w-full text-start">
+                  Host your Home
+                </span>
+                <span className="hover:bg-gray-200 w-full text-start">
+                  Host an experience
+                </span>
+                <span className="hover:bg-gray-200 w-full text-start">
+                  Refer a Host
+                </span>
+                <span className="hover:bg-gray-200 w-full text-start">
+                  Account
+                </span>
+              </div>
+              <span className="hover:bg-gray-200 w-full text-start">Help</span>
+              <span className="hover:bg-gray-200 w-full text-start">
+                Logout
+              </span>
+            </div>
+          ) : null}
           <div className="flex justify-end items-center relative">
             <div className="flex mr-4 items-center">
               <a className="inline-block py-2 px-3 rounded-full" href="/">
@@ -123,11 +161,14 @@ export default function SearchBar() {
                 </button>
               </div>
             </div>
-            <div className="block">
+            <div>
               <div className="inline relative">
                 <button
                   type="button"
                   className="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"
+                  onClick={() => {
+                    setShowDropDown((showDropDown) => !showDropDown);
+                  }}
                 >
                   <div className="pl-1">
                     <svg
