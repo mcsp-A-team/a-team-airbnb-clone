@@ -47,7 +47,12 @@ function App() {
               <Home updateWishlist={updateWishlist} wishlist={wishlist} />
             }
           />
-          <Route path="/wishlists" element={<Wishlist wishlist={wishlist} />} />
+          <Route
+            path="/wishlists"
+            element={
+              <Wishlist wishlist={wishlist} updateWishlist={updateWishlist} />
+            }
+          />
           <Route path="/Lakefront" element={<LakeFront />} />
           <Route path="/Beach" element={<Beach />} />
           <Route path="/Cabins" element={<Cabins />} />
