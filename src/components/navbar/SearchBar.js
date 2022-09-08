@@ -95,17 +95,16 @@ export default function SearchBar() {
           {showDropDown ? (
             <div className="flex flex-col z-10 bg-white absolute top-16 right-16 space-y-4 rounded-md p-3 pr-24 items-start shadow-lg">
               <span className="hover:bg-gray-200 w-full text-start">
-                Messages
+                <a href={'https://github.com/mcsp-A-team/a-team-airbnb-clone'} alt={'github A-team'} >A-Team Github</a>
               </span>
-              <span className="hover:bg-gray-200 w-full text-start">Trips</span>
+              <span className="hover:bg-gray-200 w-full text-start">Trip</span>
               <span
                 className="hover:bg-gray-200 w-full text-start"
                 onClick={() => {
                   navigate(`/wishlists`);
                   setShowDropDown((prevShowDropDown) => !prevShowDropDown);
                 }}
-              >
-                Wishlists
+              >Messages
               </span>
               <div className="flex flex-col items-start space-y-3 border-t border-b">
                 <span className="hover:bg-gray-200 w-full text-start">

@@ -20,10 +20,11 @@ import SearchResults from "./components/navbar/SearchResult";
 import LakeFront from "./components/filter/LakeFront";
 import Beach from "./components/filter/Beach";
 import Cabins from "./components/filter/Cabins";
+import useStickyState from "./hooks/useStickyState";
 
 function App() {
   const { searchInput } = useContext(NavContext);
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useStickyState([], "wishlist");
 
   const updateWishlist = (id) => {
     // console.log('updated')
@@ -47,7 +48,7 @@ function App() {
               <Home updateWishlist={updateWishlist} wishlist={wishlist} />
             }
           />
-          <Route path="/wishlists" element={<Wishlist wishlist={wishlist} />} />
+          <Route path="/wishlists" element={<Wishlist wishlist={wishlist} updateWishlist={updateWishlist}/>} />
           <Route
             path="/Lakefront"
             element={
