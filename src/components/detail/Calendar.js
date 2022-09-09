@@ -3,16 +3,8 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import format from "date-fns/format";
-// import { addDays } from "date-fns";
 
-export const CalendarDisplay = () => {
-  const [range, setRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
+export const CalendarDisplay = ({ range, setRange }) => {
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
 
@@ -28,13 +20,10 @@ export const CalendarDisplay = () => {
 
   const [enterDate, SetEnterDate] = useState(false);
 
-  
-
   return (
     <div>
       <div
         style={{
-          // borderTop: " .5px solid #cdcaca",
           display: "flex",
           flexDirection: "column",
           flexWrap: "nowrap",
@@ -43,7 +32,7 @@ export const CalendarDisplay = () => {
           // width: 620,
           height: 730,
           paddingTop: 20,
-          padding: 80,
+          // padding: 80,
         }}
       >
         {enterDate ? (

@@ -11,13 +11,20 @@ import axios from "axios";
 import { Review } from "./Reviews";
 import { Price } from "./Price";
 
-const API_URL = process.env.REACT_APP_API_URL
+const API_URL = process.env.REACT_APP_API_URL;
 
 function HouseDetail() {
+  const [range, setRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
   let { id } = useParams();
   const [houseObject, setHouseObject] = useState({});
   const [house, setHouse] = useState(null);
-
 
   useEffect(() => {
     axios.get(`${API_URL}/homes/${id}`).then((response) => {
@@ -36,7 +43,6 @@ function HouseDetail() {
     });
   }, []);
 
-
   if (!house) return <></>;
 
   return (
@@ -46,8 +52,8 @@ function HouseDetail() {
       <HouseDetailSub house={houseObject} />
       <HouseDetailImages />
       <div className="house-detail-body">
-        <HouseDetailDescription />
-        <Price />
+        <HouseDetailDescription range={range} setRange={setRange} />
+        <Price range={range} setRange={setRange} />
       </div>
       <Review />
       <HouseDetailMap />

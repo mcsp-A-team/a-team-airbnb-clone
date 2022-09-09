@@ -9,17 +9,10 @@ import * as IoIcons from "react-icons/io";
 import Rate from "./Rate";
 import HouseDetailReview from "./HouseDetailReview";
 import PricePerNight from "./PricePerNight";
-export const Price = () => {
-  const [range, setRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
 
+export const Price = ({ range, setRange }) => {
   const [open, setOpen] = useState(false);
-  // const [guest, setGuest] = useState(false);
+
   const [showCleaningFee, setShowCleaningFee] = useState(false);
   const [showServiceFee, setShowServiceFee] = useState(false);
 
