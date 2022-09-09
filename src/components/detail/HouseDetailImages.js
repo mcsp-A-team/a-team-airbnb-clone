@@ -19,7 +19,7 @@ const HouseDetailImages = ({}) => {
     //   randomArr.push((Math.random() * 100).toFixed());
     // }
     axios.get("https://picsum.photos/v2/list?page=3&limit=100").then((res) => {
-      console.log("pictures:", res.data[0].download_url);
+      // console.log("pictures:", res.data[0].download_url);
       for (let i = 0; i < res.data.length; i++) {
         setHousePictures((prevHousePictures) => [
           ...prevHousePictures,
