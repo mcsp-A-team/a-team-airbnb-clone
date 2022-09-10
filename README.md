@@ -6,10 +6,21 @@
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My process](#my-process)
+- [Our process](#our-process)
   - [Built with](#built-with)
   - [What We learned](#what-we-learned)
 - [Authors](#authors)
+
+Do it yourself -
+
+Fork and clone down the repo
+
+      npm install
+      //gets all dependencies
+      npm run dev
+      //starts the node server
+      npm run start:dev
+      //starts the react front end server
 
 ## Overview
 
@@ -41,7 +52,14 @@ Users should be able to:
 
 ### What we learned
 
-This is my first fullstack app that utilized React. My aim was to create an application that allowed full CRUD to a live database. I wanted to build an application that had nested components to practive using props and state that was shared throughout the application. The more difficult area to work with was the database because of how the data needed to be set up (primary keys and foreign keys) in order to keep all relevant boards tasks and subtasks related to eachother.
+In this project, we learned how to efficiently work together as a team, and how to efficiently integrate
+git into our work-flow. We ran into merge conflicts as expected and communicated often to resolve
+them. We figured out how to fix issues related to saving state between renders, using custom hooks,
+and local storage. In addition to how to dynamically change API routes, depending on the environment.
+We learned about the differences of regular CSS and Tailwind, and how Tailwind is shorter and
+more simple to use. It was trivial to figure out how to get the server and database configured correctly
+in order to be compatible with Render. Successful deployment was a huge win, because the path to
+getting there was a challenge. We are proud of this project because we made it with all our efforts.
 
 ### Authors
 
