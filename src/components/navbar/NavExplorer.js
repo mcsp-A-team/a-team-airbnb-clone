@@ -3,8 +3,8 @@ import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import iconsList from "./ExplorerIcons";
 import FilterButton from "./FilterButton";
-import { NavContext } from '../navbar/NavContext'
-import { v4 } from 'uuid'
+import { NavContext } from "../navbar/NavContext";
+import { v4 } from "uuid";
 
 export default function NavExplorer() {
   const navigate = useNavigate();
