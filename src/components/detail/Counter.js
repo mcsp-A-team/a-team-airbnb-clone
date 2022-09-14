@@ -84,7 +84,7 @@ export const Counter = () => {
         onClick={() => {
           setOpen((open) => !open);
         }}
-        onChange={() => console.log(numOfGuest)}
+        // onChange={() => console.log(numOfGuest)}
         style={{
           textAlign: "center",
           border: "1px solid",

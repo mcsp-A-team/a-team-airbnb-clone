@@ -6,7 +6,7 @@ import { CalendarDisplay } from "./Calendar";
 // import "./modal.css";
 // import Modal from "./modal/Modal";
 
-const HouseDetailDescription = ({ house }) => {
+const HouseDetailDescription = ({ house, range, setRange }) => {
   const [openShowmore, setOpenShowmore] = useState(false);
   const [openLearnmore, setOpenLearnmore] = useState(false);
 
@@ -78,12 +78,14 @@ const HouseDetailDescription = ({ house }) => {
             issue, we’ll find you a similar or better home for the length of
             your original stay, or we’ll refund you.
           </p>
-          <button onClick={() => {
+          <button
+            onClick={() => {
               setOpenLearnmore(true);
-            }}>Learn more</button>
-            {openLearnmore && (
-            <Learnmore closeLearnMore={setOpenLearnmore} />
-          )}
+            }}
+          >
+            Learn more
+          </button>
+          {openLearnmore && <Learnmore closeLearnMore={setOpenLearnmore} />}
         </div>
         <div className="house-detail-des-divider"></div>
         <div className="house-detail-des-intro">
@@ -102,12 +104,10 @@ const HouseDetailDescription = ({ house }) => {
           >
             Show more
           </button>
-          {openShowmore && (
-            <Showmore closeShowMore={setOpenShowmore} />
-          )}
+          {openShowmore && <Showmore closeShowMore={setOpenShowmore} />}
         </div>
         <div className="house-detail-des-divider"></div>
-        <CalendarDisplay />
+        <CalendarDisplay range={range} setRange={setRange} />
       </div>
     </div>
   );
