@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Review } from "./Reviews";
 import { Price } from "./Price";
+// import Modal from "./Modal";
 
 const API_URL = process.env.REACT_APP_API_URL
 
@@ -51,6 +52,7 @@ function HouseDetail() {
       </div>
       <Review />
       <HouseDetailMap />
+      {/* <Modal /> */}
     </div>
   );
 }
