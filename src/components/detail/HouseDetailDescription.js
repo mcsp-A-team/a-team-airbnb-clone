@@ -1,16 +1,12 @@
-import React, { useState } from "react";
-import Showmore from "./Showmore";
-import Learnmore from "./Learnmore";
+import React from "react";
 import { CalendarDisplay } from "./Calendar";
+import LearnMoreModal from "./LearnMoreModal";
+import ShowmoreModal from "./ShowmoreModal";
 
-// import "./modal.css";
-// import Modal from "./modal/Modal";
+
+
 
 const HouseDetailDescription = ({ house, range, setRange }) => {
-  const [openShowmore, setOpenShowmore] = useState(false);
-  const [openLearnmore, setOpenLearnmore] = useState(false);
-
-  // const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className="house-detail-des">
@@ -78,14 +74,7 @@ const HouseDetailDescription = ({ house, range, setRange }) => {
             issue, we’ll find you a similar or better home for the length of
             your original stay, or we’ll refund you.
           </p>
-          <button
-            onClick={() => {
-              setOpenLearnmore(true);
-            }}
-          >
-            Learn more
-          </button>
-          {openLearnmore && <Learnmore closeLearnMore={setOpenLearnmore} />}
+          <LearnMoreModal />
         </div>
         <div className="house-detail-des-divider"></div>
         <div className="house-detail-des-intro">
@@ -97,14 +86,7 @@ const HouseDetailDescription = ({ house, range, setRange }) => {
             pristine Greer's Ferry Lake and the beautiful Eden Isle resort. As
             you walk into ...
           </p>
-          <button
-            onClick={() => {
-              setOpenShowmore(true);
-            }}
-          >
-            Show more
-          </button>
-          {openShowmore && <Showmore closeShowMore={setOpenShowmore} />}
+          <ShowmoreModal />
         </div>
         <div className="house-detail-des-divider"></div>
         <CalendarDisplay range={range} setRange={setRange} />

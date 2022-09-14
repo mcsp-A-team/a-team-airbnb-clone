@@ -49,6 +49,7 @@ function HouseDetail() {
   return (
     <div className="house-detail">
       {/* <SearchBar /> */}
+      {/* <Modal /> */}
       <HouseDetailName house={houseObject} />
       <HouseDetailSub house={houseObject} />
       <HouseDetailImages />
@@ -58,7 +59,6 @@ function HouseDetail() {
       </div>
       <Review />
       <HouseDetailMap />
-      {/* <Modal /> */}
     </div>
   );
 }

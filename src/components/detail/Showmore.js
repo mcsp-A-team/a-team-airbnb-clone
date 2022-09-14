@@ -1,5 +1,5 @@
 import React from "react";
-import "./showmore.css";
+// import "./showmore.css";
 
 function Showmore({ closeShowMore }) {
   return (
