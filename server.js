@@ -1,8 +1,11 @@
 const express = require("express");
-const path = require('path')
+const path = require("path");
+
 const cors = require("cors");
 const { Pool } = require("pg");
 const dotenv = require("dotenv");
+const { id } = require("date-fns/locale");
+const { hoursToMinutes } = require("date-fns");
 dotenv.config();
 const { DATABASE_URL, NODE_ENV, PORT } = process.env;
 const pool = new Pool({
@@ -11,7 +14,6 @@ const pool = new Pool({
 });
 
 const app = express();
-
 
 //Connected Database
 pool.connect((err) => {
@@ -23,20 +25,23 @@ pool.connect((err) => {
 });
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'build')));
-
+app.use(express.static(path.join(__dirname, "build")));
 
 // GET HOMES
 app.get("/homes", (req, res) => {
-  pool.query("SELECT * FROM homes").then((result) => {
+  pool.query("SELECT id, city, country, state FROM homes").then((result) => {
     res.send(result.rows);
   });
 });
+
 // GET homes by ID
 app.get("/homes/:id", (req, res, next) => {
   const id = req.params.id;
   pool
-    .query("SELECT * FROM homes WHERE id = $1", [id])
+    .query(
+      "SELECT id, city, country, state, streetaddress, home_type FROM homes WHERE id = $1",
+      [id]
+    )
     .then((data) => {
       const home = data.rows;
       if ([0]) {
@@ -49,7 +54,9 @@ app.get("/homes/:id", (req, res, next) => {
 app.get("/homes/country/:country", (req, res, next) => {
   const country = req.params.country;
   pool
-    .query("SELECT * FROM homes WHERE country = $1", [country])
+    .query("SELECT id, city, country, state FROM homes WHERE country = $1", [
+      country,
+    ])
     .then((data) => {
       const home = data.rows;
       if ([0]) {
@@ -63,7 +70,9 @@ app.get("/homes/country/:country", (req, res, next) => {
 app.get("/homes/type/:prop_type", (req, res, next) => {
   const prop_type = req.params.prop_type;
   pool
-    .query("SELECT * FROM homes WHERE prop_type = $1", [prop_type])
+    .query("SELECT id, city, country, state FROM homes WHERE prop_type = $1", [
+      prop_type,
+    ])
     .then((data) => {
       const home = data.rows;
       if ([0]) {
@@ -183,7 +192,6 @@ app.post("/homes/", (req, res) => {
       res.sendStatus(500);
     });
 });
-
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);

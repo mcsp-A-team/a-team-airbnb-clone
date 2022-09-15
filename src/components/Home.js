@@ -3,10 +3,10 @@ import { NavContext } from "../components/navbar/NavContext";
 import axios from "axios";
 import HomePreview from "./HomePreview";
 // import ScrollButton from "./detail/scrolltop/ScrollButton";
-import { v4 } from 'uuid'
+import { v4 } from "uuid";
 // import { useNavigate } from "react-router-dom";
 
-const API_URL = process.env.REACT_APP_API_URL
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Home({ updateWishlist, wishlist }) {
   const { urlArr } = useContext(NavContext);

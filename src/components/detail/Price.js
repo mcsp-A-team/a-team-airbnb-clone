@@ -26,18 +26,18 @@ export const Price = ({ range, setRange }) => {
     setEnd(format(range[0].endDate, "MM/dd/yyy"));
   }, [range]);
   ///////////////
-  useEffect(() => {
-    // event listeners
-    document.addEventListener("keydown", hideOnEscape, true);
-    document.addEventListener("click", hideOnClickOutside, true);
-  }, []);
+  // useEffect(() => {
+  //   // event listeners
+  //   document.addEventListener("keydown", hideOnEscape, true);
+  //   document.addEventListener("click", hideOnClickOutside, true);
+  // }, []);
 
   // hide dropdown on ESC press
-  const hideOnEscape = (event) => {
-    if (event.key === "Escape") {
-      setOpen(false);
-    }
-  };
+  // const hideOnEscape = (event) => {
+  //   if (event.key === "Escape") {
+  //     setOpen(false);
+  //   }
+  // };
   const difference = (
     Math.abs(range[0].startDate - range[0].endDate) /
     1000 /
@@ -47,11 +47,11 @@ export const Price = ({ range, setRange }) => {
   ).toFixed(0);
 
   // Hide on outside click
-  const hideOnClickOutside = (event) => {
-    if (refOne.current && !refOne.current.contains(event.target)) {
-      setOpen(false);
-    }
-  };
+  // const hideOnClickOutside = (event) => {
+  //   if (refOne.current && !refOne.current.contains(event.target)) {
+  //     setOpen(false);
+  //   }
+  // };
   const discount = 60;
   const cleaningFee = 350;
   const serviceFee = 210;

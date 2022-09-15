@@ -6,10 +6,6 @@ import HouseDetailReview from "./HouseDetailReview";
 import Rate from "./Rate";
 
 export const Review = () => {
-  // const randomRate = (Math.random() * 5).toFixed(2);
-  // const randomReviewCount = (Math.random() * 100 + 6).toFixed(0);
-  // -------- NOTE FROM LE: HEY KEVIN I created 2 components Rate and HouseDetailReview to make is more dynamic for HouseDetail page. If you have question,just shoot me sms. --------------
-
   const [fakeReviews, SetFakeREviews] = useState([
     "Cleanliness",
     "Check-in",

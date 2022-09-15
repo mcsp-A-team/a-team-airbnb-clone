@@ -7,11 +7,11 @@ export const Counter = () => {
   const refOne = useRef(null);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    // event listeners
+  // useEffect(() => {
+  //   // event listeners
 
-    document.addEventListener("click", hideOnClickOutside, true);
-  }, []);
+  //   document.addEventListener("click", hideOnClickOutside, true);
+  // }, []);
 
   const [adultCounter, setAdultCounter] = useState(1);
 
@@ -62,11 +62,11 @@ export const Counter = () => {
   };
   let numOfGuest = childrenCounter + infantCounter + adultCounter;
 
-  const hideOnClickOutside = (event) => {
-    if (refOne.current && !refOne.current.contains(event.target)) {
-      setOpen(false);
-    }
-  };
+  // const hideOnClickOutside = (event) => {
+  //   if (refOne.current && !refOne.current.contains(event.target)) {
+  //     setOpen(false);
+  //   }
+  // };
 
   return (
     <div
