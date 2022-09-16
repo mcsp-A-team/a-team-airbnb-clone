@@ -15,7 +15,7 @@ export default function NavExplorer() {
   };
   return (
     <div className="explorer-bar bg-white w-full flex relative justify-between items-center mx-auto px-20 h-20 max-w-full">
-      <div className="explorer-holder  overflow-hidden overflow-auto  max-w-full ">
+      <div className="explorer-holder  overflow-hidden  max-w-full">
         <div className="holder-icons flex flex-row gap-8 ">
           {iconsList.map((icon) => (
             <button
@@ -35,6 +35,7 @@ export default function NavExplorer() {
                       src={icon.src}
                       width={24}
                       height={24}
+                      alt={icon.title}
                     />
                   </div>
                   <div className="explorer-text">

@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import loremAPI from './loremAPI';
 
 export const NavContext = createContext();
 
@@ -13,16 +14,8 @@ export default function NavContextProvider({ children }) {
     setSearchInput(event.target.value);
   };
 
-  //**Get lorem picture */
-  const [loremPic, setLoremPic] = useState([]);
-  useEffect(() => {
-    axios.get("https://picsum.photos/v2/list?page=3&limit=100").then((res) => {
-      setLoremPic(res.data);
-    });
-  }, []);
-  // console.log(loremPic);
-  const urlArr = loremPic.map((item) => item.download_url);
-  // console.log(urlArr);
+  const urlArr = loremAPI.map((item) => item.download_url);
+
 
   //**Get homes by country (search results) */
   const [searchResults, setSearchResults] = useState([]);

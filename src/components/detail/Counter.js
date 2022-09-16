@@ -8,9 +8,12 @@ export const Counter = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // event listeners
-
+    // event listenersy
     document.addEventListener("click", hideOnClickOutside, true);
+    return () => {
+      // cleanup
+      document.removeEventListener("click", hideOnClickOutside, true);
+    }
   }, []);
 
   const [adultCounter, setAdultCounter] = useState(1);

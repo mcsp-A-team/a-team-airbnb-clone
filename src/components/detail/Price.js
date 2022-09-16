@@ -37,6 +37,11 @@ export const Price = () => {
     // event listeners
     document.addEventListener("keydown", hideOnEscape, true);
     document.addEventListener("click", hideOnClickOutside, true);
+    return () => {
+      // cleanup
+      document.removeEventListener("keydown", hideOnEscape, true);
+      document.removeEventListener("click", hideOnClickOutside, true);
+    }
   }, []);
 
   // hide dropdown on ESC press

@@ -1,33 +1,17 @@
-import axios from "axios";
+import React, { useState, useEffect, useContext } from "react";
+import { NavContext } from '../navbar/NavContext';
 
-import React, { useState, useEffect } from "react";
-
-const HouseDetailImages = ({}) => {
+const HouseDetailImages = () => {
   const [housePictures, setHousePictures] = useState([]);
-  let randomArr = [];
+  const { urlArr } = useContext(NavContext);
 
-  // let randomArr = housePictures.map(pictures => {
-  //   [...pictures, (Math.random()*100).toFixed(0)]
-  // })
-
-  for (let i = 0; i < 5; i++) {
-    randomArr.push((Math.random() * 100).toFixed());
-  }
   useEffect(() => {
-    // let randomArr = [];
-    // for (let i = 0; i < 5; i++) {
-    //   randomArr.push((Math.random() * 100).toFixed());
-    // }
-    axios.get("https://picsum.photos/v2/list?page=3&limit=100").then((res) => {
-      console.log("pictures:", res.data[0].download_url);
-      for (let i = 0; i < res.data.length; i++) {
+      for (let i = 0; i < urlArr.length; i++) {
         setHousePictures((prevHousePictures) => [
           ...prevHousePictures,
-          res.data[i].download_url,
+          urlArr[i],
         ]);
       }
-      // console.log(randomArr);
-    });
   }, []);
 
   let randomIndex = Math.floor(Math.random() * housePictures.length);

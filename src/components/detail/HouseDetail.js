@@ -21,14 +21,12 @@ function HouseDetail() {
 
   useEffect(() => {
     axios.get(`${API_URL}/homes/${id}`).then((response) => {
-      console.log("House ID:", response.data[0]);
       setHouseObject(response.data);
     });
   }, [id]);
 
   useEffect(() => {
     axios.get(`${API_URL}/homes`).then((response) => {
-      console.log("House data:", response.data);
       setHouse(response.data);
       if (house) {
         setHouseObject(() => house);
