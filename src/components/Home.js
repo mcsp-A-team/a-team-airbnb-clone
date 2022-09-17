@@ -85,7 +85,7 @@ export default function Home({ updateWishlist, wishlist }) {
       hasMore={hasMore}
       loader={<h4 className="loader">Loading...</h4>}
       useWindow={false}
-      className="flex flex-wrap justify-evenly items-center mx-12"
+      className="main-content flex flex-wrap justify-evenly items-center mx-12"
     >
       {/* <div className="flex flex-wrap justify-evenly items-center mx-12"> */}
       {showItems(currentHomesWithUrl)}

@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
+.main-content{
+  max-width: 1760px;
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
